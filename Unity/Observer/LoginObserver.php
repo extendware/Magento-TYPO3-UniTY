@@ -1,5 +1,4 @@
 <?php
-
 namespace WebVision\Unity\Observer;
 
 use Exception;
@@ -29,8 +28,9 @@ class LoginObserver implements ObserverInterface
     /**
      * @param Observer $observer
      *
-     * @return void
      * @throws \Exception
+     *
+     * @return void
      */
     public function execute(Observer $observer)
     {

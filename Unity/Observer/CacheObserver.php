@@ -1,5 +1,4 @@
 <?php
-
 namespace WebVision\Unity\Observer;
 
 use Magento\Framework\Event\Observer;
@@ -33,7 +32,6 @@ class CacheObserver implements ObserverInterface
         try {
             $this->_curl->get($url);
         } catch (\Exception $e) {
-
         }
     }
 }

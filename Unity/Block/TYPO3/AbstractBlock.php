@@ -13,19 +13,18 @@
  * needs please refer to http://www.web-vision.de for more information.
  *
  * @category    WebVision
- * @package     WebVision/NavigationMenu
+ *
  * @copyright   Copyright (c) 2001-2018 web-vision GmbH (http://www.web-vision.de)
  * @license     <!--LICENSEURL-->
  * @author      Dhaval Kanojiya <dhaval@web-vision.de>
  */
- 
 namespace WebVision\Unity\Block\TYPO3;
 
 use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
-use WebVision\Unity\Model\Config\Source\Error\Output;
-use WebVision\Unity\Model;
 use WebVision\Unity\Helper;
+use WebVision\Unity\Model;
+use WebVision\Unity\Model\Config\Source\Error\Output;
 
 abstract class AbstractBlock extends Template implements BlockInterface
 {
@@ -69,9 +68,9 @@ abstract class AbstractBlock extends Template implements BlockInterface
             return '';
         }
 
-        if ($this->_dataHelper->isEnabled() && $this->_validateParameters()) {        
+        if ($this->_dataHelper->isEnabled() && $this->_validateParameters()) {
             $typo3 = $this->_TYPO3Model
-                ->load($this->getMode(), $this->_getParams());    
+                ->load($this->getMode(), $this->_getParams());
             $this->setData('url', $typo3->getUrl());
             // fix regarding HK-1748
             // T3 contents are not fetched on product detail pages
@@ -88,6 +87,7 @@ abstract class AbstractBlock extends Template implements BlockInterface
                 switch ($outputErrors) {
                     case Output::HTML:
                         $this->assign('content', $typo3->getError()->getMessage());
+
                         break;
                     case Output::COMMENT:
                         $message = $typo3->getError()->getMessage();
@@ -97,6 +97,7 @@ abstract class AbstractBlock extends Template implements BlockInterface
                             $message
                         );
                         $this->assign('content', '<!-- ' . $message . ' -->');
+
                         break;
                     case Output::LOG:
                     default:
@@ -142,7 +143,7 @@ abstract class AbstractBlock extends Template implements BlockInterface
     protected function _getParams()
     {
         if (!$this->hasData('params')) {
-            $params = array();
+            $params = [];
             foreach ($this->_params as $param) {
                 if ($this->hasData($param)) {
                     $params[$param] = $this->getData($param);
@@ -158,12 +159,13 @@ abstract class AbstractBlock extends Template implements BlockInterface
     {
         $defaultKeyInfo = parent::getCacheKeyInfo();
 
-        $unityKeyInfo = array(
+        $unityKeyInfo = [
             'language:' . $this->_dataHelper
                 ->getT3CurrentLanguageId(),
             'params:' . md5(serialize($this->_getParams())),
             'identifier:' . $this->getUniqueIdentifier(),
-        );
+        ];
+
         return array_merge($defaultKeyInfo, $unityKeyInfo);
     }
 
@@ -174,15 +176,19 @@ abstract class AbstractBlock extends Template implements BlockInterface
         switch ($this->getMode()) {
             case 'page':
                 $identifier .= $this->getPageUid();
+
                 break;
             case 'column':
                 $identifier .= $this->getPageUid() . $delimiter . $this->getColumnUid();
+
                 break;
             case 'element':
                 $identifier .= $this->getElementUid();
+
                 break;
             case 'menu':
                 $identifier .= $this->getSpecial() . $delimiter . $this->getSpecialValue();
+
                 break;
         }
 

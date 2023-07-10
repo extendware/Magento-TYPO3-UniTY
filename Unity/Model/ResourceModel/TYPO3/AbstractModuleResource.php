@@ -1,5 +1,4 @@
 <?php
-
 namespace WebVision\Unity\Model\ResourceModel\TYPO3;
 
 use Magento\Framework\DB\Select;
@@ -21,7 +20,7 @@ abstract class AbstractModuleResource extends AbstractDb
                 ->limit(1, 0);
             $data = $connection->fetchRow($select);
 
-            if ($data === FALSE) {
+            if ($data === false) {
                 $select = $this->_getLoadSelect('slug', $path, $module);
                 $select->reset(Select::COLUMNS)
                     ->columns(['uid', 'pid', 'canonical_url', 'doktype'])

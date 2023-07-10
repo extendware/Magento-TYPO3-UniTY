@@ -1,56 +1,55 @@
 <?php
-
 namespace WebVision\Unity\Helper;
 
+use Magento\Framework\App\Area;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 use Magento\Framework\App\State;
-use Magento\Store\Model\StoreManagerInterface;
 use Magento\Store\Model\ScopeInterface;
-use Magento\Framework\App\Area;
+use Magento\Store\Model\StoreManagerInterface;
 
 class Data extends AbstractHelper
 {
-    const GENERAL_ENABLED           = 'webvision_unity/general/enabled';
+    const GENERAL_ENABLED = 'webvision_unity/general/enabled';
     const MAG_WIDGET_CACHE_LIFETIME = 'webvision_unity/magento/widget_cache_lifetime';
-    const MAG_PAGE_CACHE_LIFETIME   = 'webvision_unity/magento/page_cache_lifetime';
-    const T3_HOST                   = 'webvision_unity/typo3/host';
-    const T3_USERNAME               = 'webvision_unity/typo3/username';
-    const T3_PASSWORD               = 'webvision_unity/typo3/password';
-    const T3_DATABASE               = 'webvision_unity/typo3/database';
-    const T3_PROTOCOL               = 'webvision_unity/typo3/protocol';
-    const T3_VERIFY_SSL             = 'webvision_unity/typo3/verify_ssl';
-    const T3_DOMAIN                 = 'webvision_unity/typo3/domain';
-    const T3_OWN_DOMAIN             = 'webvision_unity/typo3/own_domain';
-    const T3_SUBFOLDER              = 'webvision_unity/typo3/subfolder';
-    const T3_SUBPAGE                = 'webvision_unity/typo3/subpage';
-    const T3_URL_PREFIX             = 'webvision_unity/typo3/url_prefix';
-    const T3_ENCRYPTION_KEY         = 'webvision_unity/typo3/encryption_key';
-    const T3_PAGE_TYPE_HEAD         = 'webvision_unity/typo3/page_type_head';
-    const T3_PAGE_TYPE_PAGE         = 'webvision_unity/typo3/page_type_page';
-    const T3_PAGE_TYPE_COLUMN       = 'webvision_unity/typo3/page_type_column';
-    const T3_PAGE_TYPE_ELEMENT      = 'webvision_unity/typo3/page_type_element';
-    const T3_PAGE_TYPE_MENU         = 'webvision_unity/typo3/page_type_menu';
-    const T3_PAGE_TYPE_XMLSITEMAP   = 'webvision_unity/typo3/page_type_xmlsitemap';
-    const T3_ROOTPAGE               = 'webvision_unity/typo3/rootpage';
-	const T3_PRODUCTPAGE            = 'webvision_unity/typo3/productpage';
-	const T3_CATEGORYPAGE           = 'webvision_unity/typo3/categorypage';
-    const T3_MULTILANGUAGE          = 'webvision_unity/typo3/multilanguage';
-    const T3_LINK_VAR               = 'webvision_unity/typo3/link_var';
-    const T3_DEFAULT_LANGUAGE_ID    = 'webvision_unity/typo3/default_language_id';
-    const T3_CURRENT_LANGUAGE_ID    = 'webvision_unity/typo3/current_language_id';
-    const T3_CREDENTIALS            = 'webvision_unity/typo3/credentials';
-    const T3_CREDENTIALS_USERNAME   = 'webvision_unity/typo3/credentials_username';
-    const T3_CREDENTIALS_PASSWORD   = 'webvision_unity/typo3/credentials_password';
-    const T3_SEND_FILES             = 'webvision_unity/typo3/send_files';
-    const T3_REALURL_VERSION        = 'webvision_unity/typo3/realurl_version';
+    const MAG_PAGE_CACHE_LIFETIME = 'webvision_unity/magento/page_cache_lifetime';
+    const T3_HOST = 'webvision_unity/typo3/host';
+    const T3_USERNAME = 'webvision_unity/typo3/username';
+    const T3_PASSWORD = 'webvision_unity/typo3/password';
+    const T3_DATABASE = 'webvision_unity/typo3/database';
+    const T3_PROTOCOL = 'webvision_unity/typo3/protocol';
+    const T3_VERIFY_SSL = 'webvision_unity/typo3/verify_ssl';
+    const T3_DOMAIN = 'webvision_unity/typo3/domain';
+    const T3_OWN_DOMAIN = 'webvision_unity/typo3/own_domain';
+    const T3_SUBFOLDER = 'webvision_unity/typo3/subfolder';
+    const T3_SUBPAGE = 'webvision_unity/typo3/subpage';
+    const T3_URL_PREFIX = 'webvision_unity/typo3/url_prefix';
+    const T3_ENCRYPTION_KEY = 'webvision_unity/typo3/encryption_key';
+    const T3_PAGE_TYPE_HEAD = 'webvision_unity/typo3/page_type_head';
+    const T3_PAGE_TYPE_PAGE = 'webvision_unity/typo3/page_type_page';
+    const T3_PAGE_TYPE_COLUMN = 'webvision_unity/typo3/page_type_column';
+    const T3_PAGE_TYPE_ELEMENT = 'webvision_unity/typo3/page_type_element';
+    const T3_PAGE_TYPE_MENU = 'webvision_unity/typo3/page_type_menu';
+    const T3_PAGE_TYPE_XMLSITEMAP = 'webvision_unity/typo3/page_type_xmlsitemap';
+    const T3_ROOTPAGE = 'webvision_unity/typo3/rootpage';
+    const T3_PRODUCTPAGE = 'webvision_unity/typo3/productpage';
+    const T3_CATEGORYPAGE = 'webvision_unity/typo3/categorypage';
+    const T3_MULTILANGUAGE = 'webvision_unity/typo3/multilanguage';
+    const T3_LINK_VAR = 'webvision_unity/typo3/link_var';
+    const T3_DEFAULT_LANGUAGE_ID = 'webvision_unity/typo3/default_language_id';
+    const T3_CURRENT_LANGUAGE_ID = 'webvision_unity/typo3/current_language_id';
+    const T3_CREDENTIALS = 'webvision_unity/typo3/credentials';
+    const T3_CREDENTIALS_USERNAME = 'webvision_unity/typo3/credentials_username';
+    const T3_CREDENTIALS_PASSWORD = 'webvision_unity/typo3/credentials_password';
+    const T3_SEND_FILES = 'webvision_unity/typo3/send_files';
+    const T3_REALURL_VERSION = 'webvision_unity/typo3/realurl_version';
     const DEVELOPMENT_OUTPUT_ERRORS = 'webvision_unity/development/output_errors';
-    const DEVELOPMENT_NO_CACHE      = 'webvision_unity/development/no_cache';
-    const DEVELOPMENT_TIMEOUT       = 'webvision_unity/development/timeout';
-    const DEVELOPMENT_XDEBUG_TYPO3  = 'webvision_unity/development/xdebug_typo3';
-    const MODE_HEAD_WHITELIST       = 'webvision_unity/mode/head_whitelist';
-    const MODE_HEAD_BLACKLIST       = 'webvision_unity/mode/head_blacklist';
-    const MODE_HEAD_ORDER           = 'webvision_unity/mode/head_order';
+    const DEVELOPMENT_NO_CACHE = 'webvision_unity/development/no_cache';
+    const DEVELOPMENT_TIMEOUT = 'webvision_unity/development/timeout';
+    const DEVELOPMENT_XDEBUG_TYPO3 = 'webvision_unity/development/xdebug_typo3';
+    const MODE_HEAD_WHITELIST = 'webvision_unity/mode/head_whitelist';
+    const MODE_HEAD_BLACKLIST = 'webvision_unity/mode/head_blacklist';
+    const MODE_HEAD_ORDER = 'webvision_unity/mode/head_order';
 
     /**
      * @var StoreManagerInterface
@@ -306,7 +305,7 @@ class Data extends AbstractHelper
             ->getValue(static::T3_ROOTPAGE, ScopeInterface::SCOPE_STORE, $store);
     }
 
-	/**
+    /**
      * Returns the id of the TYPO3 product page or null if not set.
      *
      * @param null|string $store
@@ -318,8 +317,8 @@ class Data extends AbstractHelper
         return $this->scopeConfig
             ->getValue(static::T3_PRODUCTPAGE, ScopeInterface::SCOPE_STORE, $store);
     }
-	
-	/**
+
+    /**
      * Returns the id of the TYPO3 category page or null if not set.
      *
      * @param null|string $store
@@ -580,7 +579,8 @@ class Data extends AbstractHelper
         try {
             $isAdmin = $this->state
                 ->getAreaCode() === Area::AREA_ADMINHTML;
-        } catch (\Exception $e) { /* Nothing */ }
+        } catch (\Exception $e) { // Nothing
+        }
 
         return $isAdmin;
     }
@@ -593,6 +593,7 @@ class Data extends AbstractHelper
             case 'element':
             case 'menu':
                 $fieldName = 'page_uid';
+
                 break;
             default:
                 $fieldName = $mode . '_uid';

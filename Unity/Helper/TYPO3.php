@@ -1,10 +1,8 @@
 <?php
-
 namespace WebVision\Unity\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
-use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Registry;
 use Magento\Framework\UrlInterface;
 use Magento\Store\Model\StoreManagerInterface;
@@ -79,39 +77,40 @@ class TYPO3 extends AbstractHelper
     }
 
     public function getPageId($fallbackToRoot = false)
-{
-$pageId = 0;
-if ($this->_dataHelper->isEnabled()) {
-$url = $this->_urlHelper
+    {
+        $pageId = 0;
+        if ($this->_dataHelper->isEnabled()) {
+            $url = $this->_urlHelper
 ->clear();
-//$url->setUrl($this->request->getAlias(UrlInterface::REWRITEREQUEST_PATH_ALIAS));
+            //$url->setUrl($this->request->getAlias(UrlInterface::REWRITEREQUEST_PATH_ALIAS));
 
-if (!$url->getPath()) {
-$url->setUrl($this->_request->getRequestString());
-}
-// remove .html
-$url->setHtml(false);
+            if (!$url->getPath()) {
+                $url->setUrl($this->_request->getRequestString());
+            }
+            // remove .html
+            $url->setHtml(false);
 
-if ($this->_dataHelper->getT3Subpage()) {
-$url->prependPath($this->_dataHelper->getT3UrlPrefix());
-}
+            if ($this->_dataHelper->getT3Subpage()) {
+                $url->prependPath($this->_dataHelper->getT3UrlPrefix());
+            }
 
-$url = strtok($url, '?');
-//var_dump($url);
-$page = $this->_factoryHelper
+            $url = strtok($url, '?');
+            //var_dump($url);
+            $page = $this->_factoryHelper
 ->getTypo3PagesModel()
 ->loadByPath($url);
-$pageId = (int)$page->getId();
-//var_dump($pageId);
-}
-//die();
- $this->_pageId = $pageId;
-return $pageId;
-   }
+            $pageId = (int)$page->getId();
+            //var_dump($pageId);
+        }
+        //die();
+        $this->_pageId = $pageId;
+
+        return $pageId;
+    }
 
     public function getT3BaseUrl($store = null, $protocol = null, $path = '', array $params = [])
     {
-//return "https://cms2stage.cw-mobile.de";
+        //return "https://cms2stage.cw-mobile.de";
         $this->_urlHelper->clear();
 
         if ($protocol === null) {
@@ -122,13 +121,16 @@ return $pageId;
         switch ($protocol) {
             case Protocol::HTTP:
                 $this->_urlHelper->setProtocol('http://');
+
                 break;
             case Protocol::HTTPS:
                 $this->_urlHelper->setProtocol('https://');
+
                 break;
             default:
             case Protocol::CURRENT:
                 $this->_urlHelper->setProtocol($this->_request->isSecure() ? 'https://' : 'http://');
+
                 break;
         }
 
@@ -138,12 +140,14 @@ return $pageId;
         switch ($domain) {
             case Domain::OWN:
                 $this->_urlHelper->setDomain($this->_dataHelper->getT3OwnDomain($store));
+
                 break;
             case Domain::MAGENTO:
                 $domain = $this->_storeManager
                     ->getStore()
                     ->getBaseUrl();
                 $this->_urlHelper->setDomain(preg_replace('/https?:\/\/(.*?)\/?$/', '$1', $domain));
+
                 break;
         }
 
@@ -165,7 +169,6 @@ return $pageId;
 
     public function getFetchUrl($mode, $blockParams)
     {
-
         if (!$this->_isContentAvailable($mode, $blockParams)) {
             return '';
         }
@@ -213,6 +216,7 @@ return $pageId;
 
                     $this->_urlHelper
                         ->addQueryParam($queryParams);
+
                     break;
                 default:
                     if (array_key_exists($key, $blockParams)) {

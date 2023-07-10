@@ -1,5 +1,4 @@
 <?php
-
 namespace WebVision\Unity\Helper;
 
 use Magento\Framework\App\Helper\Context;
@@ -18,6 +17,7 @@ use Magento\Store\Model\StoreManagerInterface;
  * @method $this setDomain(string $domain)
  * @method string getBaseUrlPath()
  * @methid $this setBaseUrlPath(string $baseUrlPath)
+ *
  * @method string getStorePath()
  * @method $this setStorePath(string $storePath)
  * @method string getPath()
@@ -178,7 +178,7 @@ class URL extends DataObject
 
     public function setQuery($query = [])
     {
-        $this->setQueryParams(array());
+        $this->setQueryParams([]);
         if (is_string($query)) {
             parse_str($query, $query);
         }
@@ -215,7 +215,7 @@ class URL extends DataObject
 //        if () {
 //            $this->setStorePath('/' . $store->getCode());
 //        } else {
-            $this->setStorePath('');
+        $this->setStorePath('');
 //        }
 
         return $this;
@@ -256,7 +256,7 @@ class URL extends DataObject
 
     protected function _removeProtocol(&$url)
     {
-$url = $url ?: '';
+        $url = $url ?: '';
         preg_match('/(https?:\/\/)?(.*)/', $url, $matches);
         $url = $matches[2];
 

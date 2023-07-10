@@ -1,5 +1,4 @@
 <?php
-
 namespace WebVision\Unity\Model\ResourceModel\TYPO3;
 
 class PagesLanguageOverlay extends AbstractModuleResource

@@ -13,12 +13,11 @@
  * needs please refer to http://www.web-vision.de for more information.
  *
  * @category    WebVision
- * @package     WebVision/NavigationMenu
+ *
  * @copyright   Copyright (c) 2001-2018 web-vision GmbH (http://www.web-vision.de)
  * @license     <!--LICENSEURL-->
  * @author      Dhaval Kanojiya <dhaval@web-vision.de>
  */
- 
 namespace WebVision\Unity\Model\ResourceModel;
 
 use Magento\Framework\App\Request;
@@ -51,7 +50,7 @@ class TYPO3 extends DataObject
     protected $_storeManager;
 
     protected $jsonHelper;
-    
+
     public function __construct(
         Helper\Data $dataHelper,
         EventManager $eventManager,
@@ -92,16 +91,16 @@ class TYPO3 extends DataObject
     {
         $this->_idFieldName = $this->_dataHelper
             ->switchMode($mode);
-            
+
         try {
             $url = $this->_TYPO3Helper
                 ->getFetchUrl($mode, $params);
 
-            $eventParams = array(
+            $eventParams = [
                 'url' => new DataObject(['url' => $url]),
                 'mode' => $mode,
                 'params' => $params,
-            );
+            ];
 
             $this->_eventManager
                 ->dispatch('webvision_unity_fetchdata_before', $eventParams);
@@ -126,7 +125,7 @@ class TYPO3 extends DataObject
                 ->dispatch('webvision_unity_fetchdata_after', $eventParams);
             $data = $eventParams['fetched_data']->getFetchedData();
 
-            if (strpos(trim($data), '{') !== 0) { 
+            if (strpos(trim($data), '{') !== 0) {
                 $data = $this->_fixImageUrls($data);
                 $data = $this->_replaceMarkers($data);
                 $data = $this->_removeUnneededT3Parameter($data);
@@ -146,7 +145,7 @@ class TYPO3 extends DataObject
             $object->setError($e);
         }
 
-         return $this;
+        return $this;
     }
 
     public function afterLoad(Model $object)
@@ -159,17 +158,18 @@ class TYPO3 extends DataObject
      *
      * @param string $data
      *
-     * @return string
      * @throws \Exception
+     *
+     * @return string
      */
     protected function _fixImageUrls($data)
     {
-        $data = preg_replace_callback('/(<img.*?src=["\'])(.*?)(["\'][\s\/>])/', array($this, 'replaceBaseUrl'), $data);
-        $data = preg_replace_callback('/(srcset=["\'])(.*?)([\'"][\s\/>])/', array($this, 'replaceBaseUrl'), $data);
+        $data = preg_replace_callback('/(<img.*?src=["\'])(.*?)(["\'][\s\/>])/', [$this, 'replaceBaseUrl'], $data);
+        $data = preg_replace_callback('/(srcset=["\'])(.*?)([\'"][\s\/>])/', [$this, 'replaceBaseUrl'], $data);
 
         return $data;
     }
-	
+
     /**
      * This method is used as a callback for preg_replace_callback and replaces the base url marker with the typo3 url
      * marker in the second group.
@@ -253,7 +253,7 @@ class TYPO3 extends DataObject
             );
         }
 
-//$url = "https://cms2stage.cw-mobile.de/grill-gadgets/";
+        //$url = "https://cms2stage.cw-mobile.de/grill-gadgets/";
         if (! $this->_dataHelper->getT3VerifySsl()) {
             $curl->setOption(CURLOPT_SSL_VERIFYPEER, false);
         }
@@ -280,14 +280,16 @@ class TYPO3 extends DataObject
                 $this->_response
                     ->setRedirect($location, $status);
             } else {
-                $message = array();
+                $message = [];
                 $message[] = 'Status: ' . $status;
                 $message[] = 'Url: ' . $url;
                 $message[] = 'Response:';
                 $message[] = $result;
+
                 throw new \Exception(implode('<br>' . PHP_EOL, $message));
             }
         }
+
         return $result;
     }
 
@@ -302,10 +304,10 @@ class TYPO3 extends DataObject
         // @codingStandardsIgnoreStart
         $_COOKIE[$cookieName] = $cookieData['value'];
         // @codingStandardsIgnoreEnd
-        $setCookieParams = array(
-            'name'  => $cookieName,
+        $setCookieParams = [
+            'name' => $cookieName,
             'value' => $cookieData['value'],
-        );
+        ];
         if (array_key_exists('expires', $cookieData)) {
             $expires = new \DateTime($cookieData['expires']);
             $setCookieParams['expires'] = $expires->getTimestamp();

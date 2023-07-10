@@ -1,11 +1,9 @@
 <?php
-
 namespace WebVision\Unity\Model\Config\Source;
 
 use Magento\Framework\Option\ArrayInterface as GlobalArrayInterface;
 
-abstract class ArrayAbstract
-    implements GlobalArrayInterface, ArrayInterface
+abstract class ArrayAbstract implements GlobalArrayInterface, ArrayInterface
 {
     /**
      * @inheritDoc

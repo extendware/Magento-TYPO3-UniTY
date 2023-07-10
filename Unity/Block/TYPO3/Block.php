@@ -1,5 +1,4 @@
 <?php
-
 namespace WebVision\Unity\Block\TYPO3;
 
 class Block extends AbstractBlock
@@ -74,9 +73,11 @@ class Block extends AbstractBlock
                         break;
                     case 'abstract':
                         $this->pageConfig->setMetaData('abstract', $content);
+
                         break;
                     case 'robots':
                         $robots = $content;
+
                         break;
                 }
             }

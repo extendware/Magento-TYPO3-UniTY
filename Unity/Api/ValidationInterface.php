@@ -1,5 +1,4 @@
 <?php
-
 namespace WebVision\Unity\Api;
 
 interface ValidationInterface

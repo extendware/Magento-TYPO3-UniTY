@@ -1,5 +1,4 @@
 <?php
-
 namespace WebVision\Unity\Controller\Adminhtml\Profiles;
 
 use Magento\Backend\App\Action;
@@ -31,8 +30,9 @@ class Index extends Action
     /**
      * Dispatch request
      *
-     * @return \Magento\Framework\Controller\ResultInterface|ResponseInterface
      * @throws \Magento\Framework\Exception\NotFoundException
+     *
+     * @return \Magento\Framework\Controller\ResultInterface|ResponseInterface
      */
     public function execute()
     {

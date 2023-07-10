@@ -1,5 +1,4 @@
 <?php
-
 namespace WebVision\Unity\Block;
 
 use Magento\Framework\Filesystem\DirectoryList;

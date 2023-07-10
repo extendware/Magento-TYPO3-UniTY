@@ -1,5 +1,4 @@
 <?php
-
 namespace WebVision\Unity\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;

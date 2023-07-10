@@ -1,5 +1,4 @@
 <?php
-
 namespace WebVision\Unity\Model\TYPO3;
 
 use Magento\Framework\Model\Context;

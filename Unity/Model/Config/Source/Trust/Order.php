@@ -1,5 +1,4 @@
 <?php
-
 namespace WebVision\Unity\Model\Config\Source\Trust;
 
 use WebVision\Unity\Model\Config\Source\ArrayAbstract;

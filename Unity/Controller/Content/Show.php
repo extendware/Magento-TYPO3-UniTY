@@ -13,23 +13,22 @@
  * needs please refer to http://www.web-vision.de for more information.
  *
  * @category    WebVision
- * @package     WebVision/NavigationMenu
+ *
  * @copyright   Copyright (c) 2001-2018 web-vision GmbH (http://www.web-vision.de)
  * @license     <!--LICENSEURL-->
  * @author      Dhaval Kanojiya <dhaval@web-vision.de>
  */
- 
 namespace WebVision\Unity\Controller\Content;
 
 use Magento\Framework\Controller\ResultFactory;
 
-class Show extends \Magento\Framework\App\Action\Action 
+class Show extends \Magento\Framework\App\Action\Action
 {
     /**
      * Listing all images in gallery
      *  -@param gallery id
      */
-    public function execute() 
+    public function execute()
     {
         return $this->resultFactory->create(ResultFactory::TYPE_PAGE);
     }

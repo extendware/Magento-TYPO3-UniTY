@@ -1,5 +1,4 @@
 <?php
-
 namespace WebVision\Unity\Model;
 
 use Exception;

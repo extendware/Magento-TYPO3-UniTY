@@ -1,9 +1,8 @@
 <?php
-
 namespace WebVision\Unity\Model;
 
-use Magento\Framework\DataObject;
 use Magento\Framework\App\ObjectManager;
+use Magento\Framework\DataObject;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Model\Context;
 use Magento\Framework\Phrase;
@@ -49,7 +48,6 @@ class TYPO3 extends DataObject
 
     protected function _construct()
     {
-
     }
 
     protected function _init($resourceModel)
@@ -69,6 +67,7 @@ class TYPO3 extends DataObject
                 '_resource',
             ]
         );
+
         return $properties;
     }
 
@@ -85,6 +84,7 @@ class TYPO3 extends DataObject
     public function setIdFieldName($name)
     {
         $this->_idFieldName = $name;
+
         return $this;
     }
 
@@ -101,6 +101,7 @@ class TYPO3 extends DataObject
     public function setId($value)
     {
         $this->setData($this->_idFieldName, $value);
+
         return $this;
     }
 
@@ -117,6 +118,7 @@ class TYPO3 extends DataObject
             }
             $this->_data[$key] = $value;
         }
+
         return $this;
     }
 
@@ -134,12 +136,14 @@ class TYPO3 extends DataObject
                 $this->unsetData($element);
             }
         }
+
         return $this;
     }
 
     public function setDataChanges($value)
     {
         $this->_hasDataChanges = (bool)$value;
+
         return $this;
     }
 
@@ -156,6 +160,7 @@ class TYPO3 extends DataObject
         if (isset($this->_origData[$key])) {
             return $this->_origData[$key];
         }
+
         return null;
     }
 
@@ -166,6 +171,7 @@ class TYPO3 extends DataObject
         } else {
             $this->_origData[$key] = $data;
         }
+
         return $this;
     }
 
@@ -251,6 +257,7 @@ class TYPO3 extends DataObject
             ->afterLoad($this);
         $this->_afterLoad();
         $this->updateStoredData();
+
         return $this;
     }
 
@@ -266,6 +273,7 @@ class TYPO3 extends DataObject
         } else {
             $this->storedData = [];
         }
+
         return $this;
     }
 
@@ -273,7 +281,6 @@ class TYPO3 extends DataObject
     {
         return $this->storedData;
     }
-
 
     public function getEventPrefix()
     {

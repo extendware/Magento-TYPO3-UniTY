@@ -1,5 +1,4 @@
 <?php
-
 namespace WebVision\Unity\Model\TYPO3;
 
 use WebVision\Unity\Model\ResourceModel\TYPO3\Ttcontent as TtcontentResourceModel;

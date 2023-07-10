@@ -13,18 +13,17 @@
  * needs please refer to http://www.web-vision.de for more information.
  *
  * @category    WebVision
- * @package     WebVision/NavigationMenu
+ *
  * @copyright   Copyright (c) 2001-2018 web-vision GmbH (http://www.web-vision.de)
  * @license     <!--LICENSEURL-->
  * @author      Dhaval Kanojiya <dhaval@web-vision.de>
  */
- 
 namespace WebVision\Unity\Block\TYPO3;
 
 class Menu extends AbstractBlock implements \Magento\Widget\Block\BlockInterface
 {
-    protected $_template = "menu.phtml";
-    
+    protected $_template = 'menu.phtml';
+
     public function _construct()
     {
         parent::_construct();
@@ -34,17 +33,17 @@ class Menu extends AbstractBlock implements \Magento\Widget\Block\BlockInterface
         if ($pageId = $this->_TYPO3Helper->getPageId(true)) {
             $this->setData('page_uid', $pageId);
         }
-       
+
         if (!$this->hasData('layout')) {
             $this->setData('layout', 'menu');
         } elseif ($this->getData('layout') == 'ownLayout' && $this->hasData('own_layout')) {
-            $this->setData('layout', $this->getData('own_layout'));            
+            $this->setData('layout', $this->getData('own_layout'));
         }
-        
+
         if (!$this->getTemplate()) {
             $this->setTemplate('WebVision_Unity::menu.phtml');
         }
-        
+
         if (!$this->hasData('cache_lifetime')) {
             $this->setData('cache_lifetime', $this->_dataHelper->getMagWidgetCacheLifetime());
         }

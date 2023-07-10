@@ -1,8 +1,7 @@
 <?php
-
 namespace WebVision\Unity\Model;
 
-use \Exception;
+use Exception;
 use Magento\Framework\App\Cache\Frontend\Pool;
 use Magento\Framework\App\Cache\TypeListInterface;
 use WebVision\Unity\Api\CacheInterface;
@@ -31,7 +30,9 @@ class Cache implements CacheInterface
      * Clears all magento caches
      *
      * @api
+     *
      * @param string $cacheType
+     *
      * @return bool If the cache could be cleared or not.
      */
     public function clearAllCaches($cacheType)
@@ -55,8 +56,9 @@ class Cache implements CacheInterface
             switch ($cacheType) {
                 case 'blocks':
                     $types = [
-                        'full_page'
+                        'full_page',
                     ];
+
                     break;
                 // Do nothing for other requests
                 // As the types array is already populated
