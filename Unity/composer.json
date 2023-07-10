@@ -1,0 +1,15 @@
+{
+  "name": "webvision/unity",
+  "description": "",
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "authors": [
+    {
+      "name": "Daniel Kämmerling",
+      "email": "d.kaemmerling@web-vision.de",
+      "homepage": "https://www.web-vision.de",
+      "role": "Developer"
+    }
+  ]
+}

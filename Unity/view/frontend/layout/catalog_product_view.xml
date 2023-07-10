@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.details">
+            <block class="WebVision\Unity\Block\TYPO3\Block" before="-" name="product.info.unity" group="detailed_info">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">toHtml</argument>
+                    <argument name="at_code" xsi:type="string">unity_content</argument>
+                    <argument name="css_class" xsi:type="string">unity_content</argument>
+                    <argument name="at_label" xsi:type="string">none</argument>
+                    <argument name="title" translate="true" xsi:type="string">Description</argument>
+                    <argument name="mode" xsi:type="string">column</argument>
+                    <argument name="column_uid" xsi:type="number">1</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

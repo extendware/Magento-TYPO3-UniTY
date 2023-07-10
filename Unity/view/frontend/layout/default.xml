@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="footer-container">
+            <block class="WebVision\Unity\Block\TYPO3\Menu" template="WebVision_Unity::menu.phtml" name="footer_menu">
+                <arguments>
+                    <argument name="special" xsi:type="string">directory</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

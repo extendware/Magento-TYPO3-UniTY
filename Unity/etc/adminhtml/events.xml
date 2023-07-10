@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="backend_auth_user_login_success">
+        <observer name="unityLoginObserver" instance="WebVision\Unity\Observer\LoginObserver" />
+    </event>
+
+    <event name="adminhtml_cache_flush_system">
+        <observer name="unityClearTYPO3Cache" instance="WebVision\Unity\Observer\CacheObserver" />
+    </event>
+
+    <event name="adminhtml_cache_flush_all">
+        <observer name="unityClearTYPO3Cache" instance="WebVision\Unity\Observer\CacheObserver" />
+    </event>
+
+    <event name="clean_cache_by_tags">
+        <observer name="unityClearTYPO3Cache" instance="WebVision\Unity\Observer\CacheObserver" />
+    </event>
+
+    <event name="adminhtml_cache_refresh_type">
+        <observer name="unityClearTYPO3Cache" instance="WebVision\Unity\Observer\CacheObserver" />
+    </event>
+</config>

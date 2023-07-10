@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="typo3_block" class="WebVision\Unity\Block\TYPO3\Block" is_email_compatible="false"
+            placeholder_image="Magento_Catalog::images/product_widget_new.png" ttl="86400">
+        <label translate="true">TYPO3 Content Block</label>
+        <description translate="true">Displays content provided by TYPO3</description>
+        <parameters>
+            <parameter name="mode" xsi:type="select" required="true" visible="true">
+                <label translate="true">Display Modus</label>
+                <options>
+                    <option name="page" value="page">
+                        <label>Render Page</label>
+                    </option>
+                    
+                    <option name="column" value="column">
+                        <label>Render Column</label>
+                    </option>
+                    
+                    <option name="element" value="element">
+                        <label>Render Content Element</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="page_uid" xsi:type="text" required="true" visible="true">
+                <label translate="true">Page ID</label>
+                <!--
+                <depends>
+                    <parameter name="mode" value="page" />
+                </depends>
+                -->
+            </parameter>
+
+            <parameter name="column_uid" xsi:type="text" required="true" visible="true">
+                <label translate="true">Column ID</label>
+                <depends>
+                    <parameter name="mode" value="column" />
+                </depends>
+            </parameter>
+
+            <parameter name="element_uid" xsi:type="text" required="true" visible="true">
+                <label translate="true">Element ID</label>
+                <depends>
+                    <parameter name="mode" value="element" />
+                </depends>
+            </parameter>
+
+            <parameter name="wrapper_class" xsi:type="text" required="true" visible="true">
+                <label translate="true">Additional classes for wrapper</label>
+            </parameter>
+        </parameters>
+    </widget>
+    
+    <widget id="typo3_menu" class="WebVision\Unity\Block\TYPO3\Menu" is_email_compatible="false" placeholder_image="Magento_Catalog::images/product_widget_new.png" ttl="86400">
+        <label translate="true">TYPO3 Menu</label>
+        <description translate="true">Displays menu provided by TYPO3</description>
+        <parameters>
+            <parameter name="special" xsi:type="select" required="true" visible="true">
+                <label translate="true">HMENU.special</label>
+                <options>
+                    <option name="list" value="list">
+                        <label>List</label>
+                    </option>
+                    
+                    <option name="directory" value="directory">
+                        <label>Directory</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="special_value" xsi:type="text" required="true" visible="true">
+                <label translate="true">HMENU.special.value</label>
+                <depends>
+                    <parameter name="special" value="list" />
+                </depends>
+            </parameter>
+
+            <parameter name="entry_level" xsi:type="text" required="false" visible="true">
+                <label translate="true">HMENU.entryLevel</label>
+            </parameter>
+            
+            <parameter name="exclude_uid" xsi:type="text" required="false" visible="true">
+                <label translate="true">HMENU.excludeUid</label>
+            </parameter>
+            
+            <parameter name="layout" xsi:type="select" required="true" visible="true">
+                <label translate="true">Layout</label>
+                <options>
+                    <option name="menu" value="menu">
+                        <label>As full menu</label>
+                    </option>
+                    
+                    <option name="menuItem" value="menuItem">
+                        <label>As menu item</label>
+                    </option>
+                    
+                    <option name="ownLayout" value="ownLayout">
+                        <label>Own Layout</label>
+                    </option>
+                </options>
+            </parameter>
+            
+            <parameter name="own_layout" xsi:type="text" required="true" visible="true">
+                <label translate="true">Own Layout</label>
+                <depends>
+                    <parameter name="layout" value="ownLayout" />
+                </depends>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

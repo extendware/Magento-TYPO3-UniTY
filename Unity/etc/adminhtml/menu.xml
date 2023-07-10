@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="WebVision_Unity::header_typo3" title="TYPO3" module="WebVision_Unity" sortOrder="50" parent="Magento_Backend::content" resource="WebVision_Unity::header_typo3" />
+        <add id="WebVision_Unity::typo3_pages" title="Pages" module="WebVision_Unity" sortOrder="0" parent="WebVision_Unity::header_typo3" action="typo3/pages" resource="WebVision_Unity::typo3_pages"/>
+        <add id="WebVision_Unity::typo3_lists" title="Lists" module="WebVision_Unity" sortOrder="0" parent="WebVision_Unity::header_typo3" action="typo3/lists" resource="WebVision_Unity::typo3_lists"/>
+        <add id="WebVision_Unity::header_import" title="Import" module="WebVision_Unity" sortOrder="50" parent="Magento_Catalog::catalog" resource="WebVision_Unity::header_import"/>
+        <add id="WebVision_Unity::import_profiles" title="Profiles" module="WebVision_Unity" sortOrder="0" parent="WebVision_Unity::header_import" action="import/profiles" resource="WebVision_Unity::import_profiles"/>
+    </menu>
+</config>

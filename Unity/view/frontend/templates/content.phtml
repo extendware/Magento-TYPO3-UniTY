@@ -1,0 +1,69 @@
+<?php
+/**
+ * web-vision GmbH
+ *
+ * NOTICE OF LICENSE
+ *
+ * <!--LICENSETEXT-->
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.web-vision.de for more information.
+ *
+ * @category    WebVision
+ * @package     WebVision/NavigationMenu
+ * @copyright   Copyright (c) 2001-2018 web-vision GmbH (http://www.web-vision.de)
+ * @license     <!--LICENSEURL-->
+ * @author      Dhaval Kanojiya <dhaval@web-vision.de>
+ */
+?>
+
+<!-- UNITY TYPO3 PAGE CONTENT : START -->
+<?php if ($content): ?>
+    <div id="wv-t3-page-<?php echo $block->getPageUid(); ?>" class="wv-unity-t3-content wv-unity-t3-page <?php echo $block->getPageTitleAsClass(); ?>">
+        <?php echo $content; ?>
+    </div>
+<?php endif; ?>
+<!-- UNITY TYPO3 PAGE CONTENT : END -->
+<script defer>
+    function initaddToCart() {
+        return {
+            addToCart(productId) {
+                const formKey = hyva.getFormKey();
+                const postUrl = BASE_URL + 'checkout/cart/add/';
+
+                fetch(postUrl, {
+                    "headers": {
+                        "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    },
+                    "body": "form_key=" + formKey + "&product=" + productId + "&uenc=" + hyva.getUenc(),
+                    "method": "POST",
+                    "mode": "cors",
+                    "credentials": "include"
+                }).then(function (response) {
+                    if (response.redirected) {
+                        window.location.href = response.url;
+                    } else if (response.ok) {
+                        return response.json();
+                    } else {
+                        typeof window.dispatchMessages !== "undefined" && window.dispatchMessages(
+                            [{
+                                type: "warning",
+                                text: "<?= $escaper->escapeHtml(__('Could not add item to cart.')) ?>"
+                            }], 5000
+                        );
+                    }
+                }).catch(function (error) {
+                    typeof window.dispatchMessages !== "undefined" && window.dispatchMessages(
+                        [{
+                            type: "error",
+                            text: error
+                        }], 5000
+                    );
+                });
+            }
+        }
+    }
+</script>

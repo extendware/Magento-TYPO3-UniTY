@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="main">
+            <block class="WebVision\Unity\Block\TYPO3\Block" name="category.unity" before="-">
+                <arguments>
+                    <argument name="mode" xsi:type="string">column</argument>
+                    <argument name="column_uid" xsi:type="number">1</argument>
+                </arguments>
+            </block>
+
+            <referenceBlock name="category.unity" remove="true" />
+
+        </referenceContainer>
+    </body>
+</page>

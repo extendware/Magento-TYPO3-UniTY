@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="webvision" translate="label" sortOrder="0">
+            <label>WebVision</label>
+        </tab>
+
+        <section id="webvision_unity" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>WebVision Unity</label>
+            <tab>webvision</tab>
+            <resource>WebVision_Unity::config</resource>
+
+            <group id="general" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+
+                <field id="enabled" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="development" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Development</label>
+
+                <field id="output_errors" translate="label comment" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display errors</label>
+                    <comment>Select how errors should be outputted.</comment>
+                    <source_model>WebVision\Unity\Model\Config\Source\Error\Output</source_model>
+                </field>
+
+                <field id="no_cache" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>no_cache for TYPO3</label>
+                    <comment>Instead of the cHash a no_cache=1 will be added when fetching data.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="timeout" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>cURL timeout</label>
+                    <comment>How many seconds cURL should wait before a timeout is triggered.</comment>
+                </field>
+
+                <field id="xdebug_typo3" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>XDebug TYPO3</label>
+                    <comment>Enable to send XDebug cookie to TYPO3</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="magento" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Magento Side Settings</label>
+
+                <field id="widget_cache_lifetime" translate="label comment" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Widget Cache Lifetime</label>
+                    <comment>Cache lifetime in seconds. Leave empty to keep cached until block cache is cleared.</comment>
+                </field>
+
+                <field id="page_cache_lifetime" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Page Cache Lifetime</label>
+                    <comment>Cache lifetime in seconds. Leave empty to keep cached until block cache is cleared.</comment>
+                </field>
+            </group>
+
+            <group id="typo3" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>TYPO3 Side Settings</label>
+
+                <field id="header_database" translate="label" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Database</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+
+                <field id="host" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Database Host</label>
+                </field>
+
+                <field id="username" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Database Username</label>
+                </field>
+
+                <field id="password" translate="label" type="password" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Database Password</label>
+                </field>
+
+                <field id="database" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Database Name</label>
+                </field>
+
+                <field id="header_urlparts" translate="label" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Url parts</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+
+                <field id="protocol" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Protocol</label>
+                    <comment>The protocol for fetching data from TYPO3.</comment>
+                    <source_model>WebVision\Unity\Model\Config\Source\Web\Protocol</source_model>
+                </field>
+
+                <field id="verify_ssl" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Verify SSL certificate</label>
+                    <comment>Only turn this off if you have a self signed certificate or any problems when using https via curl.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="protocol" separator=",">https</field>
+                    </depends>
+                </field>
+
+                <field id="domain" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Domain</label>
+                    <comment>The domain of the TYPO3 frontend.</comment>
+                    <source_model>WebVision\Unity\Model\Config\Source\Web\Domain</source_model>
+                </field>
+
+                <field id="own_domain" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>The TYPO3 domain</label>
+                    <depends>
+                        <field id="domain">1</field>
+                    </depends>
+                </field>
+
+                <field id="subfolder" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Subfolder</label>
+                    <comment>If TYPO3 is installed in a subfolder this has to be added after the domain.</comment>
+                </field>
+
+                <field id="subpage" translate="label comment" type="select" sortOrder="110"  showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Use subpage</label>
+                    <comment>If the content for Magento is not directly under the root page.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="url_prefix" translate="label comment" type="text" sortOrder="120" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Url path prefix</label>
+                    <comment>This part will be inserted before the original path.</comment>
+                    <depends>
+                        <field id="subpage">1</field>
+                    </depends>
+                </field>
+
+                <field id="encryption_key" translate="label comment" type="password" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>encryptionKey</label>
+                    <comment>The TYPO3 encryptionKey found in SYS</comment>
+                </field>
+
+                <field id="header_page_types" translate="label" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>PageTypes</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+
+                <field id="page_type_head" translate="label comment" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>PageType for mode head</label>
+                    <comment>The pageType to get the header data</comment>
+                </field>
+
+                <field id="page_type_page" translate="label comment" type="text" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>PageType for mode page</label>
+                    <comment>The pageType to get the content for mode page</comment>
+                </field>
+
+                <field id="page_type_column" translate="label comment" type="text" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>PageType for mode column</label>
+                    <comment>The pageType to get the content for mode column</comment>
+                </field>
+
+                <field id="page_type_element" translate="label comment" type="text" sortOrder="180" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>PageType for mode element</label>
+                    <comment>The pageType to get the content for mode element</comment>
+                </field>
+
+                <field id="page_type_menu" translate="label comment" type="text" sortOrder="190" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>PageType for mode menu</label>
+                    <comment>The pageType to get the content for mode menu</comment>
+                </field>
+
+                <field id="page_type_xmlsitemap" translate="label comment" type="text" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>PageType for mode xmlsitemap</label>
+                    <comment>The pageType to get the content for mode xmlsitemap</comment>
+                </field>
+
+                <field id="header_additional" translate="label" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Additional</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+
+                <field id="rootpage" translate="label comment" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>TYPO3 rootpage ID</label>
+                    <comment>The id of the TYPO3 rootpage</comment>
+                </field>
+
+                <field id="multilanguage" translate="label comment" type="select" sortOrder="230"  showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Multilanguage</label>
+                    <comment>If you have multiple languages in TYPO3.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="link_var" translate="label" type="text" sortOrder="240" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>config.linkVar</label>
+                    <depends>
+                        <field id="multilanguage">1</field>
+                    </depends>
+                </field>
+
+                <field id="default_language_id" translate="label" type="text" sortOrder="250" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Default Language ID</label>
+                    <depends>
+                        <field id="multilanguage">1</field>
+                    </depends>
+                </field>
+
+                <field id="current_language_id" translate="label" type="text" sortOrder="260" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Language ID for this page</label>
+                    <depends>
+                        <field id="multilanguage">1</field>
+                    </depends>
+                </field>
+
+                <field id="credentials" translate="label comment" type="select" sortOrder="270" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Use credentials</label>
+                    <comment>If you use authentication like .htpasswd this needs to be enabled.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="credentials_username" translate="label comment" type="text" sortOrder="280" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Credential username</label>
+                    <comment>The .htpasswd username</comment>
+                    <depends>
+                        <field id="credentials">1</field>
+                    </depends>
+                </field>
+
+                <field id="credentials_password" translate="label comment" type="text" sortOrder="290" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Credential password</label>
+                    <comment>The .htpasswd password</comment>
+                    <depends>
+                        <field id="credentials">1</field>
+                    </depends>
+                </field>
+				
+				<field id="categorypage" translate="label comment" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>TYPO3 Category Folder ID</label>
+                    <comment>The id of the TYPO3 Category</comment>
+                </field>
+				
+				<field id="productpage" translate="label comment" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>TYPO3 Product Folder ID</label>
+                    <comment>The id of the TYPO3 Product</comment>
+                </field>
+				
+                <field id="send_files" translate="label comment" type="select" sortOrder="300"  showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Send files</label>
+                    <comment>Sending of files to TYPO3 is only possible with PHP 5.5</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="header_extensions" translate="label" sortOrder="310" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Extensions</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+
+                <field id="realurl_version" translate="label comment" type="select" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Realurl Version</label>
+                    <comment>Choose the realurl version installed.</comment>
+                    <source_model>WebVision\Unity\Model\Config\Source\Typo3\Realurl</source_model>
+                </field>
+            </group>
+
+            <group id="mode" translate="label" type="text" sortOrder="330" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Mode Specific Settings</label>
+
+                <field id="header_head_mode" translate="label" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Head Mode</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+
+                <field id="head_whitelist" translate="label comment" type="textarea" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Whitelist</label>
+                    <comment>Each entry of the whitelist has to go into a separate line. You can use speaking urls or internal urls and regular expressions.</comment>
+                </field>
+
+                <field id="head_blacklist" translate="label comment" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Blacklist</label>
+                    <comment>Each entry of the blacklist has to go into a separate line. You can use speaking urls or internal urls and regular expressions.</comment>
+                </field>
+
+                <field id="head_order" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Order of Whitelist/Blacklist</label>
+                    <comment>If the whitelist should be processed first and then the blacklist or the other way.</comment>
+                    <source_model>WebVision\Unity\Model\Config\Source\Trust\Order</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

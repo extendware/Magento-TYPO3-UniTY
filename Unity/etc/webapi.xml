@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/unity/clearAllCaches/cacheType/:cacheType" method="GET">
+        <service class="WebVision\Unity\Api\CacheInterface" method="clearAllCaches"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/unity/validateToken/username/:username/token/:token" method="GET">
+        <service class="WebVision\Unity\Api\ValidationInterface" method="validateToken"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

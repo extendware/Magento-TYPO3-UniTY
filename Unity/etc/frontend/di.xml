@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\App\RouterList">
+        <arguments>
+            <argument name="routerList" xsi:type="array">
+                <item name="webvision_unity" xsi:type="array">
+                    <item name="class" xsi:type="string">WebVision\Unity\Controller\Router</item>
+                    <item name="sortOrder" xsi:type="string">61</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

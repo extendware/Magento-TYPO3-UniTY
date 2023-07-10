@@ -1,0 +1,13 @@
+<?php
+/**
+ * @var WebVision\Unity\Block\TYPO3\Block $block
+ */
+?>
+
+<!-- UNITY TYPO3 BLOCK CONTENT : START -->
+<?php if ($content): ?>
+    <div id="wv-t3-block-<?php echo $block->getUniqueIdentifier(); ?>" class="wv-unity-t3-content wv-unity-t3-block<?php echo $block->getWrapperClass(); ?>">
+        <?php echo $content; ?>
+    </div>
+<?php endif; ?>
+<!-- UNITY TYPO3 BLOCK CONTENT : END -->

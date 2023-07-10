@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <webvision_unity>
+            <general>
+                <enabled>0</enabled>
+            </general>
+
+            <development>
+                <output_errors>2</output_errors>
+                <no_cache>0</no_cache>
+                <timeout>5</timeout>
+                <xdebug_typo3>0</xdebug_typo3>
+            </development>
+
+            <typo3>
+                <host>localhost</host>
+                <username>root</username>
+                <database>t3</database>
+
+                <protocol>0</protocol>
+                <verify_ssl>1</verify_ssl>
+                <domain>0</domain>
+                <subfolder>cms</subfolder>
+                <subpage>0</subpage>
+                <url_prefix>content</url_prefix>
+
+                <page_type_head>3210</page_type_head>
+                <page_type_page>3211</page_type_page>
+                <page_type_column>3212</page_type_column>
+                <page_type_element>3213</page_type_element>
+                <page_type_menu>3214</page_type_menu>
+                <page_type_xmlsitemap>3215</page_type_xmlsitemap>
+
+                <rootpage>1</rootpage>
+                <multilanguage>0</multilanguage>
+                <credentials>0</credentials>
+                <send_files>1</send_files>
+                <categorypage>180</categorypage>
+                <productpage>79</productpage>
+            </typo3>
+
+            <mode>
+                <head_order>1</head_order>
+            </mode>
+        </webvision_unity>
+    </default>
+</config>

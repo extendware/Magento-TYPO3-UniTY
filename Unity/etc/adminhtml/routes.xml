@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="typo3" frontName="typo3">
+            <module name="WebVision_Unity" before="Magento_Backend" />
+        </route>
+
+        <route id="import" frontName="import">
+            <module name="WebVision_Unity" before="Magento_Backend" />
+        </route>
+    </router>
+</config>
