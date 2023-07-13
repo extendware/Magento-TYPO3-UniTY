@@ -17,7 +17,7 @@ stages:
 Deploy to Stage:
   <<: *deploy_template
   only:
-    - master
+    - main
   script:
     - scp Unity/docs/index.md "$HOSTSERVER":httpdocs/source/unity/
     - scp -r Unity/docs/images/* "$HOSTSERVER":httpdocs/source/unity/docs/images
