@@ -236,9 +236,6 @@ class TYPO3 extends AbstractHelper
                 ->addQueryParam('no_cache', '1');
         }
 
-        $this->_urlHelper
-            ->addQueryParam('store_id', $storeId);
-
         return '' . $this->_urlHelper;
     }
 
