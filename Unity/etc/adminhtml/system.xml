@@ -186,7 +186,7 @@
                     <comment>The id of the TYPO3 rootpage</comment>
                 </field>
 
-                <field id="multilanguage" translate="label comment" type="select" sortOrder="230"  showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="multilanguage" translate="label comment" type="select" sortOrder="230"  showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Multilanguage</label>
                     <comment>If you have multiple languages in TYPO3.</comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
