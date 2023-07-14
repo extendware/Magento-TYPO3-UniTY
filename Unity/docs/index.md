@@ -1,17 +1,27 @@
 # Extendware Unity for Magento 2
+The Mage UniTY extension, developed by web-vision, allows seamless integration of the TYPO3 content management system with an existing Magento shop.
+This integration enhances search service optimization, improves visitor experience, and facilitates professional content marketing for your Magento store.
 
 ## Installation in your Magento Online Shop
 *  **Note** : in production please use the `--keep-generated` option
 
-### Type 1: Zip file
+### Step 1 Setup typo3 and install unity for typo3
+
+### Step 2 : Setup Unity for Magento.
+
+###  Step 2.1 : Zip file
  - Unzip the zip file in `app/code/Extendware`
  - Enable the module by running `php bin/magento module:enable Extendware_Unity`
  - Apply database updates by running `php bin/magento setup:upgrade`\*
  - Flush the cache by running `php bin/magento cache:flush`
 
 
-## USER GUIDE AND CONFIGURATION
+## Step 2.2 : USER GUIDE
+
+### Step 2.2.1 : CONFIGURATION
 * You will find all settings in **Admin > Stores > Settings > Configuration > web-vision > web-vision UniTy.**
+![alt_text](docs/images/2.2.1.1.png "image_tooltip")
+![alt_text](docs/images/2.2.1.2.png "image_tooltip")
 
 * Here Magento configuration is divided into 5 Setps:
 
@@ -95,3 +105,19 @@
   - Order of Whitelist/Blacklist: Choose whether to process the blacklist or whitelist first.
 
 
+### Step 2.2.2 : ADD WIDGETS
+- Go to Admin > Content > Widget .
+![alt_text](docs/images/step2.2_1.png "image_tooltip")
+- Click on the "Add Widget" button. Choose the type of widget you want to create from the available options (TYPO3 Content Block,TYPO3 Menu). Select the widget type that suits your requirements and click on the "Continue" button.
+
+- Step 2 : Widget Storefront Properties And Layout Updates
+![alt_text](docs/images/widgets_1.png "image_tooltip")
+- Configure the widget settings by providing the necessary information such as Widget Title, Storefront Properties, Layout Updates, and Widget Options. The options will vary depending on the widget type you selected.
+- Customize the appearance and behavior of the widget using the available settings. These settings may include selecting a specific CMS block or product list, setting display conditions, specifying the number of items to show, etc.
+
+- Step 3 : Widget Options
+![alt_text](docs/images/widgets_2.png "image_tooltip")
+- Options:
+    - Display Modus : There are mnay option here. You can use Render Page for render page form typo3.
+    - Page ID : You can use specific typo3 page id.
+    - Additional classes for wrapper : You can assign the class for wrapping connetn in this class.
