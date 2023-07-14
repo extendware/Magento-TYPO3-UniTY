@@ -1,4 +1,4 @@
-# Extendware Unity for Magento 2
+# web-vision Mage UniTY for Magento 2
 The Mage UniTY extension, developed by web-vision, allows seamless integration of the TYPO3 content management system with an existing Magento shop.
 This integration enhances search service optimization, improves visitor experience, and facilitates professional content marketing for your Magento store.
 
@@ -10,8 +10,8 @@ This integration enhances search service optimization, improves visitor experien
 ### Step 2 : Setup Unity for Magento.
 
 ###  Step 2.1 : Zip file
- - Unzip the zip file in `app/code/Extendware`
- - Enable the module by running `php bin/magento module:enable Extendware_Unity`
+ - Unzip the zip file in `app/code/WebVision`
+ - Enable the module by running `php bin/magento module:enable WebVision_Unity`
  - Apply database updates by running `php bin/magento setup:upgrade`\*
  - Flush the cache by running `php bin/magento cache:flush`
 
@@ -20,7 +20,9 @@ This integration enhances search service optimization, improves visitor experien
 
 ### Step 2.2.1 : CONFIGURATION
 * You will find all settings in **Admin > Stores > Settings > Configuration > web-vision > web-vision UniTy.**
+
 ![alt_text](docs/images/2.2.1.1.png "image_tooltip")
+
 ![alt_text](docs/images/2.2.1.2.png "image_tooltip")
 
 * Here Magento configuration is divided into 5 Setps:
