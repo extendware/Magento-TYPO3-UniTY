@@ -1,9 +1,13 @@
-# web-vision Mage UniTY for Magento 2
+# Magento to TYPO3 Connector: Mage UniTY for Magento 2 and TYPO3
 The Mage UniTY extension, developed by web-vision, allows seamless integration of the TYPO3 content management system with an existing Magento 2.x shop.
 This integration enhances search service optimization, improves visitor experience, and facilitates professional content marketing for your Magento store.
+Use TYPO3 as content mamagement system inside or side-by-side for your Magento sore. 
 
-## System Requirement
+Checkout the video here: https://youtu.be/q6b1Eg8bS7k
+
+## System Requirements
 - A working TYPO3 CMS v11 LTS System wiht the TYPO3 Extension of the Magento-TYPO3-UniTY
+- A Magento 2.4.x version 
 
 ## Setup Mage UniTY for Magento.
 
