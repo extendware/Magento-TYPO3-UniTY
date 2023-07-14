@@ -142,4 +142,3 @@ This integration enhances search service optimization, improves visitor experien
          background-color: #f5f5f5;
       }
    </style>
-   frontend1.
