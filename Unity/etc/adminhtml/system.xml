@@ -20,7 +20,7 @@
             </group>
 
             <group id="development" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Development</label>
+                <label>Developer</label>
 
                 <field id="output_errors" translate="label comment" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Display errors</label>
