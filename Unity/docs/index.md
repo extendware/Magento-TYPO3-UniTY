@@ -5,9 +5,9 @@ This integration enhances search service optimization, improves visitor experien
 ## Installation in your Magento Online Shop
 *  **Note** : in production please use the `--keep-generated` option
 
-### Step 1 Setup typo3 and install unity for typo3
+### Step 1 : Setup TYPO3 and install UniTY for typo3
 
-### Step 2 : Setup Unity for Magento.
+### Step 2 : Setup Mage UniTY for Magento.
 
 ###  Step 2.1 : Zip file
  - Unzip the zip file in `app/code/WebVision`
