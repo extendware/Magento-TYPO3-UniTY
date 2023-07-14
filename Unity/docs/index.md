@@ -106,16 +106,18 @@ This integration enhances search service optimization, improves visitor experien
 
 
 ### Step 2.2.2 : ADD WIDGETS
-- Go to Admin > Content > Widget .
+**- Step 1 : Go to Admin > Content > Widget**
+
 ![alt_text](docs/images/step2.2_1.png "image_tooltip")
+
 - Click on the "Add Widget" button. Choose the type of widget you want to create from the available options (TYPO3 Content Block,TYPO3 Menu). Select the widget type that suits your requirements and click on the "Continue" button.
 
-- Step 2 : Widget Storefront Properties And Layout Updates
+**- Step 2 : Widget Storefront Properties And Layout Updates**
 ![alt_text](docs/images/widgets_1.png "image_tooltip")
 - Configure the widget settings by providing the necessary information such as Widget Title, Storefront Properties, Layout Updates, and Widget Options. The options will vary depending on the widget type you selected.
 - Customize the appearance and behavior of the widget using the available settings. These settings may include selecting a specific CMS block or product list, setting display conditions, specifying the number of items to show, etc.
 
-- Step 3 : Widget Options
+**- Step 3 : Widget Options**
 ![alt_text](docs/images/widgets_2.png "image_tooltip")
 - Options:
     - Display Modus : There are mnay option here. You can use Render Page for render page form typo3.
