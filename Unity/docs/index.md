@@ -16,7 +16,7 @@
 * Here Magento configuration is divided into 5 Setps:
 
     1. General Settings
-    2. Development
+    2. Developer
     3. Magento side settings
     4. TYPO3 side settings
     5. Mode specific settings
@@ -26,8 +26,8 @@
 
 - Enabled: Activate or deactivate the extension globally.
 
-### Setp 2. - Development
-![alt_text](docs/images/step2.png "image_tooltip")
+### Setp 2. - Developer
+![alt_text](docs/images/step2.1.png "image_tooltip")
 - Display errors: Set how errors are displayed.
   - As HTML Code: Error message is shown directly in the frontend.
   - As HTML Comment: Error message is hidden in HTML comments in the frontend.
