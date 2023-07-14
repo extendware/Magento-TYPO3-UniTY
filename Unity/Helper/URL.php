@@ -1,4 +1,23 @@
 <?php
+/**
+ * web-vision GmbH
+ *
+ * NOTICE OF LICENSE
+ *
+ * <!--LICENSETEXT-->
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.web-vision.de for more information.
+ *
+ * @category    WebVision
+ *
+ * @copyright   Copyright (c) 2001-2018 web-vision GmbH (http://www.web-vision.de)
+ * @license     <!--LICENSEURL-->
+ * @author      WebVision <http://www.web-vision.de>
+ */
 namespace WebVision\Unity\Helper;
 
 use Magento\Framework\App\Helper\Context;
@@ -56,17 +75,6 @@ class URL extends DataObject
         if (!array_key_exists($hash, $this->_encodeCache)) {
             $path = '/' . trim($this->getPath(), '/');
             $query = $this->getFlatQueryParams();
-
-//            $mappings = $this->_getMappings();
-
-            // move params from query to path
-//            foreach ($mappings as $magKey => $seoKey) {
-//                if (array_key_exists($magKey, $query)) {
-//                    $path .= '/' . urlencode($seoKey) . '/' . urlencode($query[$magKey]);
-//                    unset($query[$magKey]);
-//                }
-//            }
-
             $this->setPath($path);
             $this->setQuery($query);
 
@@ -212,11 +220,7 @@ class URL extends DataObject
     {
         $store = $this->getStore();
 
-//        if () {
-//            $this->setStorePath('/' . $store->getCode());
-//        } else {
         $this->setStorePath('');
-//        }
 
         return $this;
     }
@@ -287,14 +291,6 @@ class URL extends DataObject
 
     protected function _removeStorePath(&$url)
     {
-//        $store = $this->getStore();
-//        if ($store->getStoreInUrl()) {
-//            $url = preg_replace('/^\/' . $store->getCode() . '/', '', $url, 1, $matches);
-//            if ($matches) {
-//                return '/' . $store->getCode();
-//            }
-//        }
-
         return '';
     }
 
@@ -332,28 +328,6 @@ class URL extends DataObject
 
         return (bool)$hasHtml;
     }
-
-//    protected function _getMappings()
-//    {
-//        $storeId = $this->getData('store_id');
-//
-//        if (!array_key_exists($storeId, $this->_mappings)) {
-//            $collection = Mage::getResourceModel('webvision_unity/query_mapping_collection');
-//            $collection->addFieldToSelect(array('magento_key', 'seo_key'))
-//                ->addFieldToFilter('store_id', array('in' => array(0, $storeId)))
-//                ->setOrder('position', Varien_Data_Collection::SORT_ORDER_ASC)
-//                ->setOrder('store_id', Varien_Data_Collection::SORT_ORDER_ASC);
-//
-//            $mappings = array();
-//            foreach ($collection->getItems() as $queryParam) {
-//                $mappings[$queryParam->getMagentoKey()] = $queryParam->getSeoKey();
-//            }
-//
-//            $this->_mappings[$storeId] = $mappings;
-//        }
-//
-//        return $this->_mappings[$storeId];
-//    }
 
     public function __toString()
     {
