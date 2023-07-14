@@ -125,3 +125,21 @@ This integration enhances search service optimization, improves visitor experien
     - Display Modus : There are mnay option here. You can use Render Page for render page form typo3.
     - Page ID : You can use specific typo3 page id.
     - Additional classes for wrapper : You can assign the class for wrapping connetn in this class.
+
+
+### Step 2.2.3 : Enhance your content design by incorporating custom CSS styles.
+1. Go to the Admin > "Content" menu and select "Configuration" under the "Design" section.
+2. In the "Configuration" page, locate the specific theme you want to add CSS to and click on the corresponding "Edit" button.
+3. Scroll down to the "HTML Head" section in the "Theme Configuration" editor.
+4. Add your custom CSS code by wrapping it inside `<style>` tags, such as:
+
+![alt_text](docs/images/frontend1.png "image_tooltip")
+
+   ```html
+   <style>
+      /* Your custom CSS code goes here */
+      body {
+         background-color: #f5f5f5;
+      }
+   </style>
+   frontend1.
