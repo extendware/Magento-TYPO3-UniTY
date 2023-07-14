@@ -51,7 +51,7 @@
   - Database Name: The name of the TYPO3 database.
 
 - **Setp 4.2 Url parts**:
-![alt_text](docs/images/step4.2png "image_tooltip")
+![alt_text](docs/images/step4.2.png "image_tooltip")
   - Protocol: The protocol for the CURL request.
       - HTTP only: Always use "http://".
       - HTTPS only: Always use "https://".
@@ -66,7 +66,7 @@
   - encryptionKey: The encryptionKey from LocalConfiguration.php for generating the cHash.
 
 - **Setp 4.3 PageTypes**:
-![alt_text](docs/images/step4.3png "image_tooltip")
+![alt_text](docs/images/step4.3.png "image_tooltip")
   - PageType for mode head: The value for the type parameter when querying head data.
   - PageType for mode page: The value for the type parameter when querying a page.
   - PageType for mode column: The value for the type parameter when querying a column.
@@ -74,7 +74,7 @@
   - PageType for mode xmlsitemap: The value for the type parameter when querying the XML sitemap.
 
 - **Setp 4.4 Additional**:
-![alt_text](docs/images/step4.4png "image_tooltip")
+![alt_text](docs/images/step4.4.png "image_tooltip")
   - TYPO3 rootpage ID: The UID of the TYPO3 rootpage where the static typoscript of wv_t3unity is stored.
   - Multilanguage: Enable multilingualism.
   - config.linkVar: The get parameter for the language (usually "L").
@@ -88,7 +88,7 @@
     - Realurl version: Set the realurl version of the TYPO3 instance.
 
 ### Setp 5. - Mode specific settings
-![alt_text](docs/images/step5png "image_tooltip")
+![alt_text](docs/images/step5.png "image_tooltip")
 - Head Mode:
   - Whitelist: Regular expressions for allowed paths.
   - Blacklist: Regular expressions for disallowed paths.
