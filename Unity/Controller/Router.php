@@ -16,7 +16,7 @@
  *
  * @copyright   Copyright (c) 2001-2018 web-vision GmbH (http://www.web-vision.de)
  * @license     <!--LICENSEURL-->
- * @author      Dhaval Kanojiya <dhaval@web-vision.de>
+ * @author      WebVision <http://www.web-vision.de>
  */
 namespace WebVision\Unity\Controller;
 
@@ -91,8 +91,6 @@ class Router implements \Magento\Framework\App\RouterInterface
                 } catch (\Exception $e) {
                     $this->logger->critical($e->getMessage());
                 }
-                var_dump($pageUid);
-                //   $pageUid=514;
                 if ($pageUid) {
                     $request->setModuleName('webvision_unity');
                     $request->setControllerName('content');
