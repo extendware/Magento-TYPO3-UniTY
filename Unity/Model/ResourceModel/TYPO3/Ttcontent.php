@@ -31,8 +31,8 @@ class Ttcontent extends AbstractModuleResource
 
     public function isColumnPresent(\WebVision\Unity\Model\TYPO3\Ttcontent $module, $pid, $colPos)
     {
-        $connection = $this->_initDb();
-        //$connection = $this->_resources->getConnectionByName('typo3');
+        $connection = $this->_resources
+            ->getConnectionByName('typo3');
 
         if ($connection) {
             $select = $this->_getLoadSelect('pid', $pid, $module);
