@@ -96,7 +96,7 @@ class URL extends DataObject
         $pathArr = explode('/', $this->getPath());
         $query = $this->getFlatQueryParams();
 
-        $mappings = []; // array_flip($this->_getMappings());
+        $mappings = [];
 
         // move params from path to query
         $count = count($pathArr);

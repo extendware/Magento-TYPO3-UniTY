@@ -253,7 +253,6 @@ class TYPO3 extends DataObject
             );
         }
 
-        //$url = "https://cms2stage.cw-mobile.de/grill-gadgets/";
         if (! $this->_dataHelper->getT3VerifySsl()) {
             $curl->setOption(CURLOPT_SSL_VERIFYPEER, false);
         }
