@@ -16,7 +16,7 @@
  *
  * @copyright   Copyright (c) 2001-2018 web-vision GmbH (http://www.web-vision.de)
  * @license     <!--LICENSEURL-->
- * @author      WebVision <http://www.web-vision.de>
+ * @author      Fenil Timbadiya <fenil@web-vision.de>
  */
 namespace WebVision\Unity\Api;
 

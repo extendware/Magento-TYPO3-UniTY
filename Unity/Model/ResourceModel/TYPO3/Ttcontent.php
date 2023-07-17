@@ -16,7 +16,7 @@
  *
  * @copyright   Copyright (c) 2001-2018 web-vision GmbH (http://www.web-vision.de)
  * @license     <!--LICENSEURL-->
- * @author      WebVision <http://www.web-vision.de>
+ * @author      Fenil Timbadiya <fenil@web-vision.de>
  */
 namespace WebVision\Unity\Model\ResourceModel\TYPO3;
 
@@ -31,8 +31,7 @@ class Ttcontent extends AbstractModuleResource
 
     public function isColumnPresent(\WebVision\Unity\Model\TYPO3\Ttcontent $module, $pid, $colPos)
     {
-        $connection = $this->_initDb();
-        //$connection = $this->_resources->getConnectionByName('typo3');
+        $connection = $this->_resources->getConnectionByName('typo3');
 
         if ($connection) {
             $select = $this->_getLoadSelect('pid', $pid, $module);
@@ -50,8 +49,7 @@ class Ttcontent extends AbstractModuleResource
 
     public function isElementPresent(\WebVision\Unity\Model\TYPO3\Ttcontent $module, $uid)
     {
-        $connection = $this->_resources
-            ->getConnectionByName('typo3');
+        $connection = $this->_resources->getConnectionByName('typo3');
 
         if ($connection) {
             $select = $this->_getLoadSelect('uid', $uid, $module);

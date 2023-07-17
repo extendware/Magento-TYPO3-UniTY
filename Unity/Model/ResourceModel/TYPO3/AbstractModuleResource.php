@@ -16,7 +16,7 @@
  *
  * @copyright   Copyright (c) 2001-2018 web-vision GmbH (http://www.web-vision.de)
  * @license     <!--LICENSEURL-->
- * @author      WebVision <http://www.web-vision.de>
+ * @author      Fenil Timbadiya <fenil@web-vision.de>
  */
 namespace WebVision\Unity\Model\ResourceModel\TYPO3;
 
@@ -28,8 +28,7 @@ abstract class AbstractModuleResource extends AbstractDb
 {
     public function loadByPath(AbstractModule $module, $path)
     {
-        $connection = $this->_resources
-            ->getConnectionByName('typo3');
+        $connection = $this->_resources->getConnectionByName('typo3');
 
         if ($connection) {
             $select = $this->_getLoadSelect('slug', $path, $module);
@@ -61,8 +60,7 @@ abstract class AbstractModuleResource extends AbstractDb
 
     public function isPresent(AbstractModule $module, $uid)
     {
-        $connection = $this->_resources
-            ->getConnectionByName('typo3');
+        $connection = $this->_resources->getConnectionByName('typo3');
 
         if ($connection) {
             $select = $this->_getLoadSelect('uid', $uid, $module);
