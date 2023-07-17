@@ -16,7 +16,7 @@
  *
  * @copyright   Copyright (c) 2001-2018 web-vision GmbH (http://www.web-vision.de)
  * @license     <!--LICENSEURL-->
- * @author      WebVision <http://www.web-vision.de>
+ * @author      Fenil Timbadiya <fenil@web-vision.de>
  */
 namespace WebVision\Unity\Helper;
 
@@ -96,7 +96,7 @@ class URL extends DataObject
         $pathArr = explode('/', $this->getPath());
         $query = $this->getFlatQueryParams();
 
-        $mappings = []; // array_flip($this->_getMappings());
+        $mappings = [];
 
         // move params from path to query
         $count = count($pathArr);

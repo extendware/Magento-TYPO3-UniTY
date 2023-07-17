@@ -1,15 +1,25 @@
 {
   "name": "webvision/unity",
-  "description": "",
+  "description": "Mage UniTY for Magento 2",
   "type": "magento2-module",
   "version": "1.0.0",
   "license": "UNLICENSED",
   "authors": [
-    {
-      "name": "Daniel Kämmerling",
-      "email": "d.kaemmerling@web-vision.de",
-      "homepage": "https://www.web-vision.de",
-      "role": "Developer"
-    }
-  ]
+      {
+          "name": "Fenil Timbadiya",
+          "email": "fenil@web-vision.de",
+          "homepage": "https://www.web-vision.de",
+          "role": "Developer"
+      }
+  ],
+  "minimum-stability": "stable",
+  "require": {},
+  "autoload": {
+      "files": [
+          "registration.php"
+      ],
+      "psr-4": {
+          "WebVision\\Unity\\": ""
+      }
+  }
 }

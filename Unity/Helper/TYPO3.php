@@ -16,7 +16,7 @@
  *
  * @copyright   Copyright (c) 2001-2018 web-vision GmbH (http://www.web-vision.de)
  * @license     <!--LICENSEURL-->
- * @author      WebVision <http://www.web-vision.de>
+ * @author      Fenil Timbadiya <fenil@web-vision.de>
  */
 namespace WebVision\Unity\Helper;
 
@@ -100,12 +100,10 @@ class TYPO3 extends AbstractHelper
         $pageId = 0;
         if ($this->_dataHelper->isEnabled()) {
             $url = $this->_urlHelper->clear();
-            //$url->setUrl($this->request->getAlias(UrlInterface::REWRITEREQUEST_PATH_ALIAS));
 
             if (!$url->getPath()) {
                 $url->setUrl($this->_request->getRequestString());
             }
-            // remove .html
             $url->setHtml(false);
 
             if ($this->_dataHelper->getT3Subpage()) {
@@ -123,7 +121,6 @@ class TYPO3 extends AbstractHelper
 
     public function getT3BaseUrl($store = null, $protocol = null, $path = '', array $params = [])
     {
-        //return "https://cms2stage.cw-mobile.de";
         $this->_urlHelper->clear();
 
         if ($protocol === null) {
@@ -218,14 +215,6 @@ class TYPO3 extends AbstractHelper
                 case 'currentParams':
                     $queryParams = $this->_request
                         ->getQuery();
-
-                    // remove all params that are not in the whitelist
-//                    $whitelistParams = Mage::getResourceModel('webvision_unity/query_whitelist_collection');
-//                    foreach ($queryParams as $queryKey => $value) {
-//                        if ($whitelistParams->getItemByColumnValue('param_key', $queryKey) === null) {
-//                            unset($queryParams[$queryKey]);
-//                        }
-//                    }
 
                     $this->_urlHelper
                         ->addQueryParam($queryParams);

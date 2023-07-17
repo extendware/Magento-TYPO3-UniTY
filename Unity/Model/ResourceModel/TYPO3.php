@@ -16,7 +16,7 @@
  *
  * @copyright   Copyright (c) 2001-2018 web-vision GmbH (http://www.web-vision.de)
  * @license     <!--LICENSEURL-->
- * @author      WebVision <http://www.web-vision.de>
+ * @author      Fenil Timbadiya <fenil@web-vision.de>
  */
 namespace WebVision\Unity\Model\ResourceModel;
 
@@ -253,7 +253,6 @@ class TYPO3 extends DataObject
             );
         }
 
-        //$url = "https://cms2stage.cw-mobile.de/grill-gadgets/";
         if (! $this->_dataHelper->getT3VerifySsl()) {
             $curl->setOption(CURLOPT_SSL_VERIFYPEER, false);
         }
