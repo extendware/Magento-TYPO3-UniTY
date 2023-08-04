@@ -2,18 +2,18 @@
   "name": "webvision/unity",
   "description": "Mage UniTY for Magento 2",
   "type": "magento2-module",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "license": "UNLICENSED",
   "authors": [
-      {
-          "name": "Fenil Timbadiya",
-          "email": "fenil@web-vision.de",
-          "homepage": "https://www.web-vision.de",
-          "role": "Developer"
-      }
+    {
+        "name": "Extendware",
+        "email": "support@extendware.com"
+    }
   ],
   "minimum-stability": "stable",
-  "require": {},
+  "require": {
+    "php": "^5.5.22 || ^7.0.0 || ^8.0.0"
+  },
   "autoload": {
       "files": [
           "registration.php"
