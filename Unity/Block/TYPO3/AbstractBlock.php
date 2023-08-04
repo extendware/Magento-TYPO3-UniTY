@@ -10,13 +10,13 @@
  *
  * Do not edit or add to this file if you wish to upgrade Magento to newer
  * versions in the future. If you wish to customize Magento for your
- * needs please refer to http://www.web-vision.de for more information.
+ * needs please refer to https://www.extendware.com for more information.
  *
- * @category    WebVision
+ * @category    Extendware
  *
- * @copyright   Copyright (c) 2001-2018 web-vision GmbH (http://www.web-vision.de)
+ * @copyright   Copyright (c) 2001-2023 web-vision GmbH (https://www.extendware.com)
  * @license     <!--LICENSEURL-->
- * @author      Fenil Timbadiya <fenil@web-vision.de>
+ * @author      Extendware, by web-vision GmbH  <https://www.extendware.com>
  */
 namespace WebVision\Unity\Block\TYPO3;
 
