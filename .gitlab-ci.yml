@@ -19,6 +19,6 @@ Deploy to Stage:
   only:
     - main
   script:
-    - scp Unity/docs/index.md "$HOSTSERVER":httpdocs/source/unity/
-    - scp -r Unity/docs/images/* "$HOSTSERVER":httpdocs/source/unity/docs/images
+    - scp docs/index.md "$HOSTSERVER":httpdocs/source/unity
+    - scp -r docs/images/* "$HOSTSERVER":httpdocs/source/unity/docs/images
     - ssh "$HOSTSERVER" "cd httpdocs/ && make html"
