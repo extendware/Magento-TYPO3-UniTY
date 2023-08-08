@@ -9,11 +9,22 @@ This integration enhances search service optimization, improves visitor experien
 
 ### Step 2 : Setup Mage UniTY for Magento.
 
-###  Step 2.1 : Zip file
- - Unzip the zip file in `app/code/WebVision`
- - Enable the module by running `php bin/magento module:enable WebVision_Unity`
- - Apply database updates by running `php bin/magento setup:upgrade`\*
- - Flush the cache by running `php bin/magento cache:flush`
+###  Step 2.1 : Mage UniTY Setup Guide
+Follow these simple steps to set up Mage UniTY via composer or manual installation.
+
+### Step 2.1.1 : Installation via Composer:
+1. Open your Magento 2 root folder in your terminal.
+2. Run the following command to install the Mage UniTY module:
+   ```bash
+   composer require webvision/unity
+3. Apply database updates by running php bin/magento setup:upgrade
+4. Flush the cache by running php bin/magento cache:flush
+
+### Step 2.1.2 : Manual Installation:
+1. Unzip the zip file in app/code/WebVision/Unity
+2. Enable the module by running php bin/magento module:enable WebVision_Unity
+3. Apply database updates by running php bin/magento setup:upgrade
+4. Flush the cache by running php bin/magento cache:flush
 
 
 ## Step 2.2 : USER GUIDE
