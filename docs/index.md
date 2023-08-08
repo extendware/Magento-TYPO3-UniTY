@@ -9,7 +9,7 @@ This integration enhances search service optimization, improves visitor experien
 
 ### Step 2 : Setup Mage UniTY for Magento.
 
-###  Step 2.1 : Mage UniTY Setup Guide
+##  Step 2.1 : Mage UniTY Setup Guide
 Follow these simple steps to set up Mage UniTY via composer or manual installation.
 
 ### Step 2.1.1 : Installation via Composer:
