@@ -9,12 +9,22 @@ Checkout the video here: https://youtu.be/q6b1Eg8bS7k
 - A working TYPO3 CMS v11 LTS System with the TYPO3 Extension of the Magento-TYPO3-UniTY, which can be found here: https://github.com/web-vision/Magento-TYPO3-UniTY/
 - A Magento 2.4.x version 
 
-## Setup Mage UniTY for Magento.
+# Mage UniTY Setup Guide
+Follow these simple steps to set up Mage UniTY via composer or manual installation.
 
-- Unzip the zip file in app/code/WebVision
-- Enable the module by running php bin/magento module:enable WebVision_Unity
-- Apply database updates by running php bin/magento setup:upgrade*
-- Flush the cache by running php bin/magento cache:flush
+## Installation via Composer:
+1. Open your Magento 2 root folder in your terminal.
+2. Run the following command to install the Mage UniTY module:
+   ```bash
+   composer require webvision/unity
+3. Apply database updates by running php bin/magento setup:upgrade
+4. Flush the cache by running php bin/magento cache:flush
+
+## Manual Installation:
+1. Unzip the zip file in app/code/WebVision/Unity
+2. Enable the module by running php bin/magento module:enable WebVision_Unity
+3. Apply database updates by running php bin/magento setup:upgrade
+4. Flush the cache by running php bin/magento cache:flush
 
 ## Adding New Connection Parameters for TYPO3 Database in `app/etc/env.php`
 To establish a connection to the TYPO3 database in Magento 2, you need to add new connection parameters to the app/etc/env.php file. Here is an example of how these parameters should be configured:
