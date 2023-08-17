@@ -153,3 +153,94 @@ Follow these simple steps to set up Mage UniTY via composer or manual installati
          background-color: #f5f5f5;
       }
    </style>
+   ```
+## Step 2.3 : DEVELOPER'S GUIDE
+  ### 2.3.1 : Call typo3 Page into magento
+  - **Into CMS dynamic fetch pageID from typo3 by comparing slug**:
+  ```{{block class="WebVision\Unity\Block\TYPO3\Block" mode="page"}}```
+    - Video: ![alt_text](docs/images/page_dynamic.webm "image_tooltip")
+  - **Into CMS with static page ID**:
+  ```{{block class="WebVision\Unity\Block\TYPO3\Block" mode="page" page_uid="108"}}```
+  - **Using LayoutXML dynamic fetch pageID from typo3 by comparing slug**:
+    ```
+    <block class="WebVision\Unity\Block\TYPO3\Block" name="category.unity" before="-">
+      <arguments>
+        <argument name="mode" xsi:type="string">page</argument>
+        <argument name="column_uid" xsi:type="number">1</argument>
+      </arguments>
+    </block>
+    ```
+  - **Using LayoutXML with static page ID***:
+    ```
+    <block class="WebVision\Unity\Block\TYPO3\Block" name="category.unity" before="-">
+      <arguments>
+        <argument name="mode" xsi:type="string">page</argument>
+        <argument name="page_uid" xsi:type="number">108</argument>
+      </arguments>
+    </block>
+    ```
+  - **PHTML dynamic fetch pageID from typo3 by comparing slug**:
+    ```
+    <?php
+    echo $this->getLayout()
+    ->createBlock('WebVision\Unity\Block\TYPO3\Block')
+    ->setMode('page')
+    ->toHtml();
+    ?>
+    ```
+  - **PHTML with static page ID**:
+    ```
+    <?php
+    echo $this->getLayout()
+    ->createBlock('WebVision\Unity\Block\TYPO3\Block')
+    ->setMode('page')
+    ->setPageUid('108')
+    ->toHtml();
+    ?>
+    ```
+  ### 2.3.2 : Call typo3 Columns into magento
+  - **Into CMS dynamic fetch pageID from typo3 by comparing slug**:
+  ```{{block class="WebVision\Unity\Block\TYPO3\Block" mode="column" column_uid="1"}}```
+    - Video: ![alt_text](docs/images/column_dynamic.webm "image_tooltip")
+  - **Into CMS with static page ID**:
+  ```{{block class="WebVision\Unity\Block\TYPO3\Block" mode="column" column_uid="1" page_uid="108"}}```
+  - **Using LayoutXML dynamic fetch pageID from typo3 by comparing slug**:
+    ```
+    <block class="WebVision\Unity\Block\TYPO3\Block" name="category.unity" before="-">
+      <arguments>
+        <argument name="mode" xsi:type="string">column</argument>
+        <argument name="column_uid" xsi:type="number">1</argument>
+      </arguments>
+    </block>
+    ```
+  - **Using LayoutXML with static page ID***:
+    ```
+    <block class="WebVision\Unity\Block\TYPO3\Block" name="category.unity" before="-">
+      <arguments>
+        <argument name="mode" xsi:type="string">column</argument>
+        <argument name="column_uid" xsi:type="number">1</argument>
+        <argument name="page_uid" xsi:type="number">108</argument>
+      </arguments>
+    </block>
+    ```
+  - **PHTML dynamic fetch pageID from typo3 by comparing slug**:
+    ```
+    <?php
+    echo $this->getLayout()
+    ->createBlock('WebVision\Unity\Block\TYPO3\Block')
+    ->setMode('column')
+    ->setColumnUid('1')
+    ->toHtml();
+    ?>
+    ```
+  - **PHTML with static page ID**:
+    ```
+    <?php
+    echo $this->getLayout()
+    ->createBlock('WebVision\Unity\Block\TYPO3\Block')
+    ->setMode('column')
+    ->setColumnUid('1')
+    ->setPageUid('108')
+    ->toHtml();
+    ?>
+    ```
