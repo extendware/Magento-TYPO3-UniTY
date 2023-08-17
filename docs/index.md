@@ -158,7 +158,6 @@ Follow these simple steps to set up Mage UniTY via composer or manual installati
   ### 2.3.1 : Call typo3 Page into magento
   - **Into CMS dynamic fetch pageID from typo3 by comparing slug**:
   ```{{block class="WebVision\Unity\Block\TYPO3\Block" mode="page"}}```
-    - Video: [![Watch the video](https://i.stack.imgur.com/Vp2cE.png)](docs/images/page_dynamic.webm)
   - **Into CMS with static page ID**:
   ```{{block class="WebVision\Unity\Block\TYPO3\Block" mode="page" page_uid="108"}}```
   - **Using LayoutXML dynamic fetch pageID from typo3 by comparing slug**:
@@ -201,7 +200,6 @@ Follow these simple steps to set up Mage UniTY via composer or manual installati
   ### 2.3.2 : Call typo3 Columns into magento
   - **Into CMS dynamic fetch pageID from typo3 by comparing slug**:
   ```{{block class="WebVision\Unity\Block\TYPO3\Block" mode="column" column_uid="1"}}```
-    - Video: [![Watch the video](https://i.stack.imgur.com/Vp2cE.png)](docs/images/column_dynamic.webm)
   - **Into CMS with static page ID**:
   ```{{block class="WebVision\Unity\Block\TYPO3\Block" mode="column" column_uid="1" page_uid="108"}}```
   - **Using LayoutXML dynamic fetch pageID from typo3 by comparing slug**:
