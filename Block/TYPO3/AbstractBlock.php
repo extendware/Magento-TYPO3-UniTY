@@ -124,7 +124,7 @@ abstract class AbstractBlock extends Template implements BlockInterface
 
                     return $this->_hasValidId('element_uid');
                 case 'menu':
-                    return $this->hasData('special') && $this->hasData('special_value');
+                    return true;
             }
         }
 
@@ -187,7 +187,7 @@ abstract class AbstractBlock extends Template implements BlockInterface
 
                 break;
             case 'menu':
-                $identifier .= $this->getSpecial() . $delimiter . $this->getSpecialValue();
+                $identifier .= $this->getSpecial() . "menu";
 
                 break;
         }
