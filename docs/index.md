@@ -197,7 +197,7 @@ Follow these simple steps to set up Mage UniTY via composer or manual installati
     ->toHtml();
     ?>
     ```
-    ### 2.3.2 : Call typo3 Columns into magento
+### 2.3.2 : Call typo3 Columns into magento
   - **Into CMS dynamic fetch pageID from typo3 by comparing slug**:
   ```{{block class="WebVision\Unity\Block\TYPO3\Block" mode="column" column_uid="1"}}```
   - **Into CMS with static page ID**:
@@ -242,7 +242,7 @@ Follow these simple steps to set up Mage UniTY via composer or manual installati
     ->toHtml();
     ?>
     ```
-    ### 2.3.3 : Call typo3 menu into magento
+### 2.3.3 : Call typo3 menu into magento
   - **Into CMS - all menu pages**:
   ```{{block class="WebVision\Unity\Block\TYPO3\Menu"}}```
   - **Into CMS - to fetch only menu items under specific page**:
