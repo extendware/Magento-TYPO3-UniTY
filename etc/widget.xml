@@ -44,7 +44,7 @@
                 </options>
             </parameter>
 
-            <parameter name="page_uid" xsi:type="text" required="true" visible="true">
+            <parameter name="page_uid" xsi:type="text" required="false" visible="true">
                 <label translate="true">Page ID</label>
                 <!--
                 <depends>
@@ -72,61 +72,13 @@
             </parameter>
         </parameters>
     </widget>
-    
+
     <widget id="typo3_menu" class="WebVision\Unity\Block\TYPO3\Menu" is_email_compatible="false" placeholder_image="Magento_Catalog::images/product_widget_new.png" ttl="86400">
         <label translate="true">TYPO3 Menu</label>
         <description translate="true">Displays menu provided by TYPO3</description>
         <parameters>
-            <parameter name="special" xsi:type="select" required="true" visible="true">
-                <label translate="true">HMENU.special</label>
-                <options>
-                    <option name="list" value="list">
-                        <label>List</label>
-                    </option>
-                    
-                    <option name="directory" value="directory">
-                        <label>Directory</label>
-                    </option>
-                </options>
-            </parameter>
-
-            <parameter name="special_value" xsi:type="text" required="true" visible="true">
-                <label translate="true">HMENU.special.value</label>
-                <depends>
-                    <parameter name="special" value="list" />
-                </depends>
-            </parameter>
-
-            <parameter name="entry_level" xsi:type="text" required="false" visible="true">
-                <label translate="true">HMENU.entryLevel</label>
-            </parameter>
-            
-            <parameter name="exclude_uid" xsi:type="text" required="false" visible="true">
-                <label translate="true">HMENU.excludeUid</label>
-            </parameter>
-            
-            <parameter name="layout" xsi:type="select" required="true" visible="true">
-                <label translate="true">Layout</label>
-                <options>
-                    <option name="menu" value="menu">
-                        <label>As full menu</label>
-                    </option>
-                    
-                    <option name="menuItem" value="menuItem">
-                        <label>As menu item</label>
-                    </option>
-                    
-                    <option name="ownLayout" value="ownLayout">
-                        <label>Own Layout</label>
-                    </option>
-                </options>
-            </parameter>
-            
-            <parameter name="own_layout" xsi:type="text" required="true" visible="true">
-                <label translate="true">Own Layout</label>
-                <depends>
-                    <parameter name="layout" value="ownLayout" />
-                </depends>
+            <parameter name="page_uid" xsi:type="text" required="true" visible="true">
+                <label translate="true">Tree Page ID</label>
             </parameter>
         </parameters>
     </widget>

@@ -30,14 +30,9 @@ class Menu extends AbstractBlock implements \Magento\Widget\Block\BlockInterface
 
         // set defaults if not set via widget
         $this->setData('mode', 'menu');
-        if ($pageId = $this->_TYPO3Helper->getPageId(true)) {
-            $this->setData('page_uid', $pageId);
-        }
 
-        if (!$this->hasData('layout')) {
-            $this->setData('layout', 'menu');
-        } elseif ($this->getData('layout') == 'ownLayout' && $this->hasData('own_layout')) {
-            $this->setData('layout', $this->getData('own_layout'));
+        if (!$this->hasData('page_uid')) {
+            $this->setData('page_uid', $this->_dataHelper->getT3Rootpage());
         }
 
         if (!$this->getTemplate()) {
@@ -47,5 +42,6 @@ class Menu extends AbstractBlock implements \Magento\Widget\Block\BlockInterface
         if (!$this->hasData('cache_lifetime')) {
             $this->setData('cache_lifetime', $this->_dataHelper->getMagWidgetCacheLifetime());
         }
+
     }
 }
