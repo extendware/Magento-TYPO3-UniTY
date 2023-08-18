@@ -197,7 +197,7 @@ Follow these simple steps to set up Mage UniTY via composer or manual installati
     ->toHtml();
     ?>
     ```
-  ### 2.3.2 : Call typo3 Columns into magento
+    ### 2.3.2 : Call typo3 Columns into magento
   - **Into CMS dynamic fetch pageID from typo3 by comparing slug**:
   ```{{block class="WebVision\Unity\Block\TYPO3\Block" mode="column" column_uid="1"}}```
   - **Into CMS with static page ID**:
@@ -239,6 +239,40 @@ Follow these simple steps to set up Mage UniTY via composer or manual installati
     ->setMode('column')
     ->setColumnUid('1')
     ->setPageUid('108')
+    ->toHtml();
+    ?>
+    ```
+    ### 2.3.3 : Call typo3 menu into magento
+  - **Into CMS - all menu pages**:
+  ```{{block class="WebVision\Unity\Block\TYPO3\Menu"}}```
+  - **Into CMS - to fetch only menu items under specific page**:
+  ```{{block class="WebVision\Unity\Block\TYPO3\Menu" page_uid="66"}}```
+  - **Using LayoutXML - all menu pages**:
+    ```
+    <block class="WebVision\Unity\Block\TYPO3\Menu" name="menu.unity" before="-" />
+    ```
+  - **Using LayoutXML - to fetch only menu items under specific pag***:
+    ```
+    <block class="WebVision\Unity\Block\TYPO3\Menu" name="menu.unity" before="-">
+      <arguments>
+        <argument name="page_uid" xsi:type="string">66</argument>
+      </arguments>
+    </block>
+    ```
+  - **PHTML - all menu pages**:
+    ```
+    <?php
+    echo $this->getLayout()
+    ->createBlock('WebVision\Unity\Block\TYPO3\Menu')
+    ->toHtml();
+    ?>
+    ```
+  - **PHTML - to fetch only menu items under specific page**:
+    ```
+    <?php
+    echo $this->getLayout()
+    ->createBlock('WebVision\Unity\Block\TYPO3\Menu')
+    ->setPageUid('66')
     ->toHtml();
     ?>
     ```
