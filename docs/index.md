@@ -276,3 +276,26 @@ Follow these simple steps to set up Mage UniTY via composer or manual installati
     ->toHtml();
     ?>
     ```
+### 2.3.4 : Call typo3 element into magento
+  - **Into CMS**:
+  ```{{block class="WebVision\Unity\Block\TYPO3\Block" mode="element" element_uid="18"}}```
+
+  - **Using LayoutXML**:
+    ```
+    <block class="WebVision\Unity\Block\TYPO3\Block" name="category.unity" before="-">
+      <arguments>
+        <argument name="mode" xsi:type="string">element</argument>
+        <argument name="element_uid" xsi:type="number">18</argument>
+      </arguments>
+    </block>
+    ```
+  - **PHTML dynamic fetch pageID from typo3 by comparing slug**:
+    ```
+    <?php
+    echo $this->getLayout()
+    ->createBlock('WebVision\Unity\Block\TYPO3\Block')
+    ->setMode('element')
+    ->setElementUid('18')
+    ->toHtml();
+    ?>
+    ```
