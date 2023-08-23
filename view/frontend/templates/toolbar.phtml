@@ -1,0 +1,98 @@
+<?php
+/**
+ * Hyvä Themes - https://hyva.io
+ * Copyright © Hyvä Themes 2020-present. All rights reserved.
+ * This product is licensed per Magento install
+ * See https://hyva.io/license
+ */
+
+declare(strict_types=1);
+
+use Magento\Catalog\Block\Product\ProductList\Toolbar;
+use Magento\Framework\Escaper;
+
+/** @var Escaper $escaper */
+/** @var Toolbar $block */
+
+// phpcs:disable Magento2.Security.IncludeFile.FoundIncludeFile
+// phpcs:disable PSR2.Methods.FunctionCallSignature.SpaceBeforeOpenBracket
+
+$uniqueId = '_' . uniqid();
+?>
+<script defer>
+    function initToolbar<?= /** @noEscape */  $uniqueId ?>() {
+        return {
+            isTop: true,
+            options: <?= /* @noEscape */ $block->getWidgetOptionsJson() ?>.productListToolbarForm || {},
+            changeUrl: function (paramName, paramValue, defaultValue) {
+                var decode = window.decodeURIComponent,
+                    urlPaths = this.options.url.split('?'),
+                    baseUrl = urlPaths[0],
+                    urlParams = urlPaths[1] ? urlPaths[1].split('&') : [],
+                    paramData = {},
+                    parameters, i, form, params, key, input, formKey;
+
+                for (i = 0; i < urlParams.length; i++) {
+                    parameters = urlParams[i].split('=');
+                    paramData[decode(parameters[0])] = parameters[1] !== undefined ?
+                        decode(parameters[1].replace(/\+/g, '%20')) :
+                        '';
+                }
+                paramData[paramName] = paramValue;
+
+                if (this.options.post) {
+                    form = document.createElement('form');
+                    params = [this.options.mode, this.options.direction, this.options.order, this.options.limit];
+
+                    for (key in paramData) {
+                        if (params.indexOf(key) !== -1) { //eslint-disable-line max-depth
+                            input = document.createElement('input');
+                            input.name = key;
+                            input.value = paramData[key];
+                            form.appendChild(input);
+                            delete paramData[key];
+                        }
+                    }
+                    formKey = document.createElement('input');
+                    formKey.name = 'form_key';
+                    formKey.value = this.options.formKey;
+                    form.appendChild(formKey);
+
+                    paramData = $.param(paramData);
+                    baseUrl += paramData.length ? '?' + paramData : '';
+
+                    form.action = baseUrl;
+                    form.method = 'POST';
+                    document.body.appendChild(form);
+                    form.submit();
+                } else {
+                    if (paramValue === defaultValue.toString()) {
+                        delete paramData[paramName];
+                    }
+                    paramData = Object.keys(paramData).map(function(k) {
+                        return encodeURIComponent(k) + '=' + encodeURIComponent(paramData[k])
+                    }).join('&');
+
+                    location.href = baseUrl + (paramData.length ? '?' + paramData : '');
+                }
+            }
+        }
+    }
+</script>
+<?php if ($block->getCollection()->getSize()): ?>
+    <div 
+        x-data="initToolbar<?= /** @noEscape */ $uniqueId ?>()"
+        class="toolbar toolbar-products grid grid-cols-1 xl:grid-cols-3 grid-flow-row gap-2 items-center"
+    >
+        <div x-show="isTop">
+            <?php include($block->getTemplateFile('Magento_Catalog::product/list/toolbar/amount.phtml')) ?>
+        </div>
+        <?= $block->getPagerHtml() ?>
+        <?php include($block->getTemplateFile('WebVision_Unity::toolbar/limiter.phtml')) ?>
+        <div x-show="isTop">
+            <?php if ($block->isExpanded()): ?>
+                <?php include($block->getTemplateFile('WebVision_Unity::toolbar/sorter.phtml')) ?>
+            <?php endif; ?>
+        </div>
+    </div>
+<?php endif ?>

@@ -34,4 +34,34 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+    <route url="/V1/webvision-unity/query_mapping" method="POST">
+        <service class="WebVision\Unity\Api\QueryMappingRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="WebVision_Unity::query_mapping_save"/>
+        </resources>
+    </route>
+    <route url="/V1/webvision-unity/query_mapping/search" method="GET">
+        <service class="WebVision\Unity\Api\QueryMappingRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="WebVision_Unity::query_mapping_view"/>
+        </resources>
+    </route>
+    <route url="/V1/webvision-unity/query_mapping/:queryMappingId" method="GET">
+        <service class="WebVision\Unity\Api\QueryMappingRepositoryInterface" method="get"/>
+        <resources>
+            <resource ref="WebVision_Unity::query_mapping_view"/>
+        </resources>
+    </route>
+    <route url="/V1/webvision-unity/query_mapping/:queryMappingId" method="PUT">
+        <service class="WebVision\Unity\Api\QueryMappingRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="WebVision_Unity::query_mapping_update"/>
+        </resources>
+    </route>
+    <route url="/V1/webvision-unity/query_mapping/:queryMappingId" method="DELETE">
+        <service class="WebVision\Unity\Api\QueryMappingRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="WebVision_Unity::query_mapping_delete"/>
+        </resources>
+    </route>
 </routes>

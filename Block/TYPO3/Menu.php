@@ -42,6 +42,5 @@ class Menu extends AbstractBlock implements \Magento\Widget\Block\BlockInterface
         if (!$this->hasData('cache_lifetime')) {
             $this->setData('cache_lifetime', $this->_dataHelper->getMagWidgetCacheLifetime());
         }
-
     }
 }

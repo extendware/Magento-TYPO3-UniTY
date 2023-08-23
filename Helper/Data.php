@@ -69,6 +69,8 @@ class Data extends AbstractHelper
     const MODE_HEAD_WHITELIST = 'webvision_unity/mode/head_whitelist';
     const MODE_HEAD_BLACKLIST = 'webvision_unity/mode/head_blacklist';
     const MODE_HEAD_ORDER = 'webvision_unity/mode/head_order';
+    const SEO_FILTERS = 'webvision_unity/seo/status_filter';
+    const SEO_PAGINATION = 'webvision_unity/seo/status_pagination';
 
     /**
      * @var StoreManagerInterface
@@ -584,6 +586,32 @@ class Data extends AbstractHelper
     {
         return (int)$this->scopeConfig
             ->getValue(static::MODE_HEAD_ORDER, ScopeInterface::SCOPE_STORE, $store);
+    }
+
+    /**
+     * Returns if seo friedly url should enabled for filters
+     *
+     * @param null|string $store
+     *
+     * @return int
+     */
+    public function getSeoFilterStatus($store = null)
+    {
+        return (int)$this->scopeConfig
+            ->getValue(static::SEO_FILTERS, ScopeInterface::SCOPE_STORE, $store);
+    }
+
+    /**
+     * Returns if seo friedly url should enabled for pagination
+     *
+     * @param null|string $store
+     *
+     * @return int
+     */
+    public function getSeoPaginationStatus($store = null)
+    {
+        return (int)$this->scopeConfig
+            ->getValue(static::SEO_PAGINATION, ScopeInterface::SCOPE_STORE, $store);
     }
 
     /**

@@ -23,4 +23,37 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="WebVision\Unity\Api\CacheInterface" type="WebVision\Unity\Model\Cache" />
     <preference for="WebVision\Unity\Api\ValidationInterface" type="WebVision\Unity\Model\Validation" />
+    <preference for="WebVision\Unity\Api\QueryMappingRepositoryInterface" type="WebVision\Unity\Model\QueryMappingRepository"/>
+    <preference for="WebVision\Unity\Api\Data\QueryMappingInterface" type="WebVision\Unity\Model\Data\QueryMapping"/>
+    <preference for="WebVision\Unity\Api\Data\QueryMappingSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+    <virtualType name="WebVision\Unity\Model\ResourceModel\QueryMapping\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">webvision_unity_query_mapping</argument>
+            <argument name="resourceModel" xsi:type="string">WebVision\Unity\Model\ResourceModel\QueryMapping\Collection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="webvision_unity_query_mapping_listing_data_source" xsi:type="string">WebVision\Unity\Model\ResourceModel\QueryMapping\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- custom development -->
+    <type name="Magento\Catalog\Model\Layer\Filter\Item">
+        <plugin disabled="false" name="WebVision_Unity_Plugin_Magento_Catalog_Model_Layer_Filter_Item" sortOrder="10" type="WebVision\Unity\Plugin\Magento\Catalog\Model\Layer\Filter\Item"/>
+    </type>
+    <preference for="Magento\UrlRewrite\Controller\Router" type="WebVision\Unity\Controller\CustomRouter" />
+    
+    <type name="Magento\LayeredNavigation\Block\Navigation\State">
+        <plugin disabled="false" name="WebVision_Unity_Plugin_State" type="WebVision\Unity\Plugin\Magento\Catalog\Model\Layer\Filter\State" sortOrder="5" />
+    </type>
+
+    <type name="Magento\Theme\Block\Html\Pager">
+        <plugin disabled="false" name="WebVision_Unity_Plugin_Pager" type="WebVision\Unity\Plugin\PagerPlugin" sortOrder="5" />
+    </type>
+    
+    <type name="Magento\Catalog\Block\Product\ProductList\Toolbar">
+        <plugin disabled="true" sortOrder="1" name="module_catalog_category_Toolbar_override_template" type="WebVision\Unity\Plugin\Catalog\Block\Product\ProductList\Toolbar" />
+    </type>
 </config>

@@ -36,6 +36,13 @@
                         <resource id="WebVision_Unity::import_profiles" title="Profiles" sortOrder="0" />
                     </resource>
                 </resource>
+                
+                <resource id="WebVision_Unity::query_mapping" title="query_mapping" sortOrder="10">
+                    <resource id="WebVision_Unity::query_mapping_save" title="Save query_mapping" sortOrder="10"/>
+                    <resource id="WebVision_Unity::query_mapping_delete" title="Delete query_mapping" sortOrder="20"/>
+                    <resource id="WebVision_Unity::query_mapping_update" title="Update query_mapping" sortOrder="30"/>
+                    <resource id="WebVision_Unity::query_mapping_view" title="View query_mapping" sortOrder="40"/>
+                </resource>
             </resource>
         </resources>
     </acl>
