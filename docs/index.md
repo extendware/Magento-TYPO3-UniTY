@@ -110,13 +110,17 @@ Follow these simple steps to set up Mage UniTY via composer or manual installati
   - Extensions:
     - Realurl version: Set the realurl version of the TYPO3 instance.
 
-### Setp 5. - Mode specific settings
+### Step 5. - Mode specific settings
 ![alt_text](docs/images/step5.png "image_tooltip")
 - Head Mode:
   - Whitelist: Regular expressions for allowed paths.
   - Blacklist: Regular expressions for disallowed paths.
   - Order of Whitelist/Blacklist: Choose whether to process the blacklist or whitelist first.
-
+  
+### Step 6. - Seo settings
+![alt_text](docs/images/step6.png "image_tooltip")
+- Enable seo friendly url for filter
+- Enable seo friendly url for pagination
 
 ### Step 2.2.2 : ADD WIDGETS
 **- Step 1 : Go to Admin > Content > Widget**

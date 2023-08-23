@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="webvision_unity_query_mapping" resource="default" engine="innodb" comment="webvision_unity_query_mapping Table">
+		<column xsi:type="smallint" name="query_mapping_id" padding="6" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="query_mapping_id"/>
+		</constraint>
+		<column name="magento_key" nullable="true" xsi:type="varchar" comment="magento_key" length="255"/>
+		<column name="seo_key" nullable="true" xsi:type="varchar" comment="seo_key" length="255"/>
+		<column name="store_id" nullable="true" xsi:type="int" comment="store_id" identity="false"/>
+		<column name="position" nullable="true" xsi:type="int" comment="position" identity="false"/>
+	</table>
+</schema>

@@ -23,7 +23,6 @@ namespace WebVision\Unity\Helper;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 use Magento\Framework\Registry;
-use Magento\Framework\UrlInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use WebVision\Unity\Model\Config\Source\Web\Domain;
 use WebVision\Unity\Model\Config\Source\Web\Protocol;

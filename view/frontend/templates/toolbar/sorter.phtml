@@ -1,0 +1,56 @@
+<?php
+/**
+ * web-vision GmbH
+ *
+ * NOTICE OF LICENSE
+ *
+ * <!--LICENSETEXT-->
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.web-vision.de for more information.
+ *
+ * @category    WebVision
+ *
+ * @copyright   Copyright (c) 2001-2021 web-vision GmbH (https://www.web-vision.de)
+ * @license     <!--LICENSEURL-->
+ * @author      Parth Trivedi <parth@web-vision.de>
+ */
+
+declare(strict_types=1);
+
+use Magento\Catalog\Block\Product\ProductList\Toolbar;
+use Magento\Framework\Escaper;
+use WebVision\Unity\ViewModel\HelperData;
+
+/** @var $viewModelStore Helper */
+$viewModelHelper = $viewModels->require(HelperData::class);
+
+/** @var Toolbar $block */
+/** @var Escaper $escaper */
+?>
+<div class="toolbar-sorter sorter flex justify-end text-sm text-primary-lighter">
+    <span class="sorter-label leading-9 xl:leading-none 2xl:leading-9 font-bold">
+        <?= $escaper->escapeHtml(__('Sort By')) ?>
+    </span>
+    <select data-role="sorter"
+            class="bg-transparent border-none text-sm"
+            aria-label="<?= $escaper->escapeHtml(__('Sort By')) ?>"
+            onchange='this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);'
+            >
+        <?php
+         foreach ($block->getAvailableOrders() as $_key => $_order):
+            ?>
+            <option value="<?= $escaper->escapeHtmlAttr($viewModelHelper->generateSorterUrl($_key)) ?>"
+                <?php if ($block->isOrderCurrent($_key)):?>
+                    selected="selected"
+                <?php endif; ?>
+                >
+                <?= $escaper->escapeHtml(__($_order)) ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
+</div>
+ 

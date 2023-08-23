@@ -27,5 +27,7 @@
         <add id="WebVision_Unity::typo3_lists" title="Lists" module="WebVision_Unity" sortOrder="0" parent="WebVision_Unity::header_typo3" action="typo3/lists" resource="WebVision_Unity::typo3_lists"/>
         <add id="WebVision_Unity::header_import" title="Import" module="WebVision_Unity" sortOrder="50" parent="Magento_Catalog::catalog" resource="WebVision_Unity::header_import"/>
         <add id="WebVision_Unity::import_profiles" title="Profiles" module="WebVision_Unity" sortOrder="0" parent="WebVision_Unity::header_import" action="import/profiles" resource="WebVision_Unity::import_profiles"/>
+        <add id="WebVision::top_level" title="WebVision" module="WebVision_Unity" sortOrder="9999" resource="Magento_Backend::content"/>
+        <add id="WebVision_Unity::webvision_unity_query_mapping" title="Query Mapping" module="WebVision_Unity" sortOrder="9999" resource="Magento_Backend::content" parent="WebVision::top_level" action="webvision_unity/querymapping/index"/>
     </menu>
 </config>

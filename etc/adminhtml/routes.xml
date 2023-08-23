@@ -29,5 +29,9 @@
         <route id="import" frontName="import">
             <module name="WebVision_Unity" before="Magento_Backend" />
         </route>
+
+        <route frontName="webvision_unity" id="webvision_unity">
+            <module before="Magento_Backend" name="WebVision_Unity"/>
+        </route>
     </router>
 </config>

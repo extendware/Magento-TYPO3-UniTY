@@ -187,7 +187,7 @@ abstract class AbstractBlock extends Template implements BlockInterface
 
                 break;
             case 'menu':
-                $identifier .= $this->getSpecial() . "menu";
+                $identifier .= $this->getSpecial() . 'menu';
 
                 break;
         }

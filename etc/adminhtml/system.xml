@@ -308,6 +308,21 @@
                     <source_model>WebVision\Unity\Model\Config\Source\Trust\Order</source_model>
                 </field>
             </group>
+
+            <group id="seo" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Seo Settings</label>
+
+                <field id="status_filter" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled Seo friendly URLs for Filters</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="status_pagination" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled Seo friendly URLs for Pagination</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
         </section>
     </system>
 </config>
