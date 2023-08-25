@@ -122,6 +122,25 @@ Follow these simple steps to set up Mage UniTY via composer or manual installati
 - Enable seo friendly url for filter
 - Enable seo friendly url for pagination
 
+### Step 7. - Seo URL Mapping
+## 7.2 : URL key mappings
+- Go to Admin > WebVision > Query Mapping And Click on "Add new query_mapping" button.
+![alt_text](docs/images/step7_1.png "image_tooltip")
+  - magento_key : In this context, you should input the Magento URL Key that you wish to map with the TYPO3 page URL.
+  - seo_key : Here, you should enter the TYPO3 URL you want to connect with a specific Magento URL key.
+  - store_id : Use this field to provide the store ID, which helps identify the store. Think of it as the store’s identification id.
+  - position : You can specify the position by assigning a numerical value in this field.
+- Click on Save Query Mapping for the save those settings.
+## 7.2 : Example Scenario
+  - Let’s take the scenario where your Magento URL is similar to: https://demo.extendware.com/women/tops-women/jackets-women/page/2.html.
+  - Mapping Creation: Now, suppose you’ve established a mapping as shown in the provided image:
+  - **Mapping Image**
+    ![alt_text](docs/images/step7_1.png "image_tooltip")
+  - After Mapping: Once you save this mapping, the URL transforms into: https://demo.extendware.com/women/tops-women/jackets-women/secondpage.html.
+  - This process illustrates how the mapping configuration results in the transformation of the URL structure, providing a clearer and more user-friendly link.
+
+
+
 ### Step 2.2.2 : ADD WIDGETS
 **- Step 1 : Go to Admin > Content > Widget**
 
@@ -138,7 +157,9 @@ Follow these simple steps to set up Mage UniTY via composer or manual installati
 ![alt_text](docs/images/widgets_2.png "image_tooltip")
 - Options:
     - Display Modus : There are mnay option here. You can use Render Page for render page form typo3.
-    - Page ID : You can use specific typo3 page id.
+      - Render Page: Suppose you choose "Render Page" mode. This lets you incorporate a chosen TYPO3 page by specifying its page ID. The content of the entire TYPO3 page will be displayed in the current context.
+      - Render Column: If you go for "Render Column" mode, you can display a specific column from a TYPO3 page. Just provide the column's ID, and the content from that column will be shown within your current setup.
+      - Render Content Element: Opting for "Render Content Element" mode enables you to showcase a particular content element from a TYPO3 page. By specifying the element's ID, you can present that specific content within your current context.
     - Additional classes for wrapper : You can assign the class for wrapping connetn in this class.
 
 
