@@ -2,7 +2,7 @@
   "name": "webvision/unity",
   "description": "Mage UniTY for Magento 2",
   "type": "magento2-module",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "license": "UNLICENSED",
   "authors": [
     {
