@@ -123,7 +123,7 @@ Follow these simple steps to set up Mage UniTY via composer or manual installati
 - Enable seo friendly url for pagination
 
 ### Step 7. - Seo URL Mapping
-## 7.2 : URL key mappings
+** 7.1 : URL key mappings **
 - Go to Admin > WebVision > Query Mapping And Click on "Add new query_mapping" button.
 ![alt_text](docs/images/step7_1.png "image_tooltip")
   - magento_key : In this context, you should input the Magento URL Key that you wish to map with the TYPO3 page URL.
@@ -131,7 +131,7 @@ Follow these simple steps to set up Mage UniTY via composer or manual installati
   - store_id : Use this field to provide the store ID, which helps identify the store. Think of it as the store’s identification id.
   - position : You can specify the position by assigning a numerical value in this field.
 - Click on Save Query Mapping for the save those settings.
-## 7.2 : Example Scenario
+** 7.2 : Example Scenario **
   - Let’s take the scenario where your Magento URL is similar to: https://demo.extendware.com/women/tops-women/jackets-women/page/2.html.
   - Mapping Creation: Now, suppose you’ve established a mapping as shown in the provided image:
   - **Mapping Image**
