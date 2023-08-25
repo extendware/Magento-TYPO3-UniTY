@@ -123,7 +123,7 @@ class CustomRouter implements \Magento\Framework\App\RouterInterface
             $identifier = $request->getPathInfo();
 
             if ($this->_filterHelper->getCategorySuffix()) {
-                $identifier = trim($request->getPathInfo(), $this->_filterHelper->getCategorySuffix());
+                $identifier = $this->_filterHelper->right_trim($request->getPathInfo(), $this->_filterHelper->getCategorySuffix());
             }
 
             if ($identifier) {

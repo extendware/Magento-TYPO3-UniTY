@@ -103,7 +103,8 @@ class PagerPlugin
         if ($this->_filterHelper->getCurrentCategoryUrl()) {
             $currentUrl = $this->_filterHelper->getCurrentUrl();
             if ($this->_filterHelper->getCategorySuffix()) {
-                $currentUrl = rtrim($currentUrl, $this->_filterHelper->getCategorySuffix());
+                //$currentUrl = rtrim($currentUrl, $this->_filterHelper->getCategorySuffix());
+                $currentUrl = $this->_filterHelper->right_trim($currentUrl, $this->_filterHelper->getCategorySuffix());
             }
             $urlParts = parse_url($currentUrl);
             $pathArray = explode('/', $urlParts['path']);
