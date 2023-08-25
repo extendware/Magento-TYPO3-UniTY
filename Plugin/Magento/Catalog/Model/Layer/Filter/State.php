@@ -45,7 +45,7 @@ class State
         $currentUrl = $this->_filterHelper->getCurrentUrl();
         $currentUrl = $this->_filterHelper->clearPriceFilterFromUrl($currentUrl);
         if ($this->_filterHelper->getCategorySuffix()) {
-            $currentUrl = rtrim($currentUrl, $this->_filterHelper->getCategorySuffix());
+            $currentUrl = $this->_filterHelper->right_trim($currentUrl, $this->_filterHelper->getCategorySuffix());
         }
 
         $urlKey_explode = explode('/', $currentUrl);

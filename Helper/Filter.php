@@ -438,11 +438,14 @@ class Filter extends AbstractHelper
      */
     public function generatePagerUrl($categoryUrl, $attributeLabel, $attribeVal)
     {
+        $categoryUrlSuffix = $this->getCategorySuffix();
+        if ($categoryUrlSuffix) {
+            $categoryUrl = $this->right_trim($categoryUrl, $categoryUrlSuffix);
+        }
         $urlParts = parse_url($categoryUrl);
         $pathArray = explode('/', $urlParts['path']);
         $pageKey = '';
         $pageValue = '';
-        $categoryUrlSuffix = $this->getConfig(self::CATEGORY_URL_SUFFIX);
 
         foreach ($pathArray as $key => $pathSingle) {
             $attVal = $pathSingle;
@@ -450,7 +453,7 @@ class Filter extends AbstractHelper
             if ($attVal == self::PAGER) {
                 $pageKey = $pathSingle;
                 $pageValue = $pathArray[$key + 1];
-                $finalReplace = $pageKey . '/' . $pageValue;
+                $finalReplace = '/' . $pageKey . '/' . $pageValue;
             }
 
             if ($this->getMagentoKey($pathSingle)) {
@@ -470,13 +473,9 @@ class Filter extends AbstractHelper
             $finalKey = $this->getSeoKey($finalKey);
         }
 
-        if (!$categoryUrlSuffix) {
-            $categoryUrl = $categoryUrl . '/';
-        }
+        $finalUrl = $categoryUrl . '/' . $finalKey . $categoryUrlSuffix;
 
-        $path = trim(str_replace([$categoryUrlSuffix], '/', $categoryUrl)) . $finalKey . $categoryUrlSuffix;
-
-        return $path;
+        return $finalUrl;
     }
 
     /**
@@ -937,5 +936,23 @@ class Filter extends AbstractHelper
         }
 
         return $out;
+    }
+
+    /**
+     * right trim
+     *
+     * @param string $haystack
+     * @param string $needle
+     *
+     * @return pagerDetails|string
+     */
+    public function right_trim(string $haystack, string $needle): string
+    {
+        $needle_length = strlen($needle);
+        if (substr($haystack, -$needle_length) === $needle) {
+            return substr($haystack, 0, -$needle_length);
+        }
+
+        return $haystack;
     }
 }
