@@ -16,7 +16,7 @@ Follow these simple steps to set up Mage UniTY via composer or manual installati
 1. Open your Magento 2 root folder in your terminal.
 2. Run the following command to install the Mage UniTY module:
    ```bash
-   composer require webvision/unity
+   composer require extendware/unity
 3. Apply database updates by running php bin/magento setup:upgrade
 4. Flush the cache by running php bin/magento cache:flush
 
