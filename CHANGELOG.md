@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.2.3]
+### Added
+- Fix: Minor Fixes
+
 ## [2.2.2]
 ### Added
 - Fix: Minor Fixes
