@@ -163,7 +163,7 @@ class TYPO3 extends AbstractHelper
         $subfolder = trim($this->_dataHelper->getT3Subfolder($store) ?: '', '/');
 
         if ($subfolder) {
-            $this->_dataHelper->setPath('/' . $subfolder . '/');
+            $this->_urlHelper->setPath('/' . $subfolder . '/');
         }
 
         if ($path) {
