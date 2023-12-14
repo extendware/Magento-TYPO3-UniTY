@@ -118,6 +118,28 @@ class TYPO3 extends AbstractHelper
         return $pageId;
     }
 
+    public function getPageUrl($fallbackToRoot = false)
+    {
+        $pageURL = null;
+        if ($this->_dataHelper->isEnabled()) {
+            $url = $this->_urlHelper->clear();
+
+            if (!$url->getPath()) {
+                $url->setUrl($this->_request->getRequestString());
+            }
+            $url->setHtml(false);
+
+            if ($this->_dataHelper->getT3Subpage()) {
+                $url->prependPath($this->_dataHelper->getT3UrlPrefix());
+            }
+
+            $url = strtok($url, '?');
+            $pageURL = trim($url);
+        }
+        $this->_pageURL = $pageURL;
+        return $pageURL;
+    }
+
     public function getT3BaseUrl($store = null, $protocol = null, $path = '', array $params = [])
     {
         $this->_urlHelper->clear();
@@ -186,17 +208,11 @@ class TYPO3 extends AbstractHelper
             ->getStore(array_key_exists('store_id', $blockParams) ? $blockParams['store_id'] : null)
             ->getId();
 
+        $url = $this->getPageUrl();
+
         $this->_urlHelper
             ->setUrl($this->getT3BaseUrl($storeId), $storeId)
-            ->appendPath('index.php');
-
-        $idFieldName = $this->_dataHelper
-            ->switchMode($mode);
-
-        if (array_key_exists($idFieldName, $blockParams)) {
-            $this->_urlHelper
-                ->addQueryParam('id', $blockParams[$idFieldName]);
-        }
+            ->appendPath($url);
 
         $this->_urlHelper
             ->addQueryParam('type', $this->_dataHelper->getT3PageType($mode, $storeId));
