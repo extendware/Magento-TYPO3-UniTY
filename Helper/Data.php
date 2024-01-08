@@ -281,6 +281,19 @@ class Data extends AbstractHelper
     }
 
     /**
+     * Returns the TYPO3 url extension.
+     *
+     * @param null|string $store
+     *
+     * @return string
+     */
+    public function getT3UrlExtension($store = null)
+    {
+        return $this->scopeConfig
+            ->getValue(static::T3_URL_EXTENSION, ScopeInterface::SCOPE_STORE, $store);
+    }
+
+    /**
      * Returns the TYPO3 encryptionKey.
      *
      * @param null|string $store

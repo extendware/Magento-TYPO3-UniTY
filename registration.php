@@ -18,8 +18,8 @@
  * @license     <!--LICENSEURL-->
  * @author      Extendware, by web-vision GmbH  <https://www.extendware.com>
  */
-\Magento\Framework\Component\ComponentRegistrar::register(
-    \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'WebVision_Unity',
-    __DIR__
-);
+// \Magento\Framework\Component\ComponentRegistrar::register(
+//     \Magento\Framework\Component\ComponentRegistrar::MODULE,
+//     'WebVision_Unity',
+//     __DIR__
+// );
