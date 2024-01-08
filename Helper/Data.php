@@ -43,6 +43,7 @@ class Data extends AbstractHelper
     const T3_SUBFOLDER = 'webvision_unity/typo3/subfolder';
     const T3_SUBPAGE = 'webvision_unity/typo3/subpage';
     const T3_URL_PREFIX = 'webvision_unity/typo3/url_prefix';
+    const T3_URL_EXTENSION = 'webvision_unity/typo3/url_extension';
     const T3_ENCRYPTION_KEY = 'webvision_unity/typo3/encryption_key';
     const T3_PAGE_TYPE_HEAD = 'webvision_unity/typo3/page_type_head';
     const T3_PAGE_TYPE_PAGE = 'webvision_unity/typo3/page_type_page';
