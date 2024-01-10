@@ -45,6 +45,7 @@
                 <subfolder>cms</subfolder>
                 <subpage>0</subpage>
                 <url_prefix>content</url_prefix>
+                <url_extension>.html</url_extension>
 
                 <page_type_head>3210</page_type_head>
                 <page_type_page>3211</page_type_page>

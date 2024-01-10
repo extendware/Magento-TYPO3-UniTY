@@ -210,9 +210,16 @@ class TYPO3 extends AbstractHelper
 
         $url = $this->getPageUrl();
 
-        $this->_urlHelper
-            ->setUrl($this->getT3BaseUrl($storeId), $storeId)
-            ->appendPath($url);
+        if($mode == 'menu') {
+            $this->_urlHelper
+                ->setUrl($this->getT3BaseUrl($storeId), $storeId);
+        } else {
+            if($this->_dataHelper->getT3UrlExtension()){
+                $this->_urlHelper->setUrl($this->getT3BaseUrl($storeId), $storeId)->appendPath($url.$this->_dataHelper->getT3UrlExtension());
+            } else {
+                $this->_urlHelper->setUrl($this->getT3BaseUrl($storeId), $storeId)->appendPath($url);
+            }
+        }
 
         $this->_urlHelper
             ->addQueryParam('type', $this->_dataHelper->getT3PageType($mode, $storeId));

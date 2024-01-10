@@ -157,6 +157,11 @@
                     </depends>
                 </field>
 
+                <field id="url_extension" translate="label comment" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Url Extension</label>
+                    <comment>This Url Extension will be inserted after the original path.</comment>
+                </field>
+
                 <field id="encryption_key" translate="label comment" type="password" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>encryptionKey</label>
                     <comment>The TYPO3 encryptionKey found in SYS</comment>
