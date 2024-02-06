@@ -211,7 +211,10 @@
                     <label>TYPO3 rootpage ID</label>
                     <comment>The id of the TYPO3 rootpage</comment>
                 </field>
-
+                <field id="menu_entry_level" translate="label" type="text" sortOrder="230" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Typo3 Menu Entry Level</label>
+                     <validate>validate-number</validate>
+                </field>
                 <field id="multilanguage" translate="label comment" type="select" sortOrder="230"  showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Multilanguage</label>
                     <comment>If you have multiple languages in TYPO3.</comment>

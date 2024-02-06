@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.2.6]
+### Added
+- Fix: Minor Fixes For Version Compatibility
+
 ## [2.2.5]
 ### Added
 - Fix: Minor Fixes For Version Compatibility
