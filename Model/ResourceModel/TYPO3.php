@@ -270,14 +270,9 @@ class TYPO3 extends DataObject
         if ($status !== 100 && strpos($status, '2') !== 0) {
             // is status starts with a 3 it is a redirect
             if (strpos($status, '3') === 0) {
-                $location = $this->_replaceMarkers($headers['Location']);
-                // fix following case http://domain.tld/%BASE_URL%/path
-                if (($pos = strpos($location, 'http', 4)) !== false) {
-                    $location = substr($location, $pos);
-                }
+                $location = $this->_replaceMarkers($headers['location']);
 
-                $this->_response
-                    ->setRedirect($location, $status);
+                return $this->_fetchData($location);
             } else {
                 $message = [];
                 $message[] = 'Status: ' . $status;
