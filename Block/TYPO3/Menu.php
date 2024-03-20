@@ -24,6 +24,7 @@ class Menu extends AbstractBlock implements \Magento\Widget\Block\BlockInterface
 {
     protected $_template = 'menu.phtml';
 
+
     public function _construct()
     {
         parent::_construct();
@@ -33,6 +34,14 @@ class Menu extends AbstractBlock implements \Magento\Widget\Block\BlockInterface
 
         if (!$this->hasData('page_uid')) {
             $this->setData('page_uid', $this->_dataHelper->getT3Rootpage());
+        }
+
+        if ($this->getData('entry_level')) {
+            $this->setData('entry_level', $this->getData('entry_level'));
+        }
+
+        if ($this->getData('layout')) {
+            $this->setData('layout', $this->getData('layout'));
         }
 
         if (!$this->getTemplate()) {
