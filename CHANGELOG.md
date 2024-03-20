@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.2.8]
+### Added
+- Add: Layout and entry-level parameters
+
 ## [2.2.7]
 ### Added
 - Fix: Multiple URL Redirection issue
