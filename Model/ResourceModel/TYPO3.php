@@ -166,6 +166,8 @@ class TYPO3 extends DataObject
     {
         $data = preg_replace_callback('/(<img.*?src=["\'])(.*?)(["\'][\s\/>])/', [$this, 'replaceBaseUrl'], $data);
         $data = preg_replace_callback('/(srcset=["\'])(.*?)([\'"][\s\/>])/', [$this, 'replaceBaseUrl'], $data);
+        // Updates the base URL of the URL specified in "data-url" attribute from Magento 2 to TYPO3.
+        $data = preg_replace_callback('/(data-url=["\'])(.*?)([\'"][\s\/>])/', [$this, 'replaceBaseUrl'], $data);
 
         return $data;
     }
