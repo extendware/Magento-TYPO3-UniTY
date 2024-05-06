@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.3.0]
+### Added
+- Add: TYPO3 breadcrumbs addition
+
 ## [2.2.9]
 ### Added
 - Add: Custom "data-url" attribute URLs will have a TYPO3 base URL instead of the default Magento 2 one 
