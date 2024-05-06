@@ -210,9 +210,13 @@ class TYPO3 extends AbstractHelper
 
         $url = $this->getPageUrl();
 
-        if($mode == 'menu') {
+        if ($mode == 'menu' && $blockParams['layout'] !== 'breadcrumb') {
             $this->_urlHelper
                 ->setUrl($this->getT3BaseUrl($storeId), $storeId);
+
+            if ($this->_dataHelper->getT3MenuEntryLevel()){
+                $this->_urlHelper->addQueryParam('entry-level', $this->_dataHelper->getT3MenuEntryLevel());
+            }
         } else {
             if($this->_dataHelper->getT3UrlExtension()){
                 $this->_urlHelper->setUrl($this->getT3BaseUrl($storeId), $storeId)->appendPath($url.$this->_dataHelper->getT3UrlExtension());
@@ -223,12 +227,6 @@ class TYPO3 extends AbstractHelper
 
         $this->_urlHelper
             ->addQueryParam('type', $this->_dataHelper->getT3PageType($mode, $storeId));
-
-        if($mode == 'menu') {
-            if($this->_dataHelper->getT3MenuEntryLevel()){
-                $this->_urlHelper->addQueryParam('entry-level', $this->_dataHelper->getT3MenuEntryLevel());
-            }
-        }
 
         if ($this->_dataHelper->isMultilanguage($storeId)) {
             $this->_urlHelper

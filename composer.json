@@ -2,7 +2,7 @@
   "name": "extendware/unity",
   "description": "Mage UniTY for Magento 2",
   "type": "magento2-module",
-  "version": "2.2.9",
+  "version": "2.3.0",
   "license": ["GPL-2.0-or-later"],
   "authors": [
     {
