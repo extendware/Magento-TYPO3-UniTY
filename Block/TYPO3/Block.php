@@ -57,55 +57,31 @@ class Block extends AbstractBlock
         return $wrapperClasses ? ' ' . implode(' ', $wrapperClasses) : '';
     }
 
-    /**
-     * init t3 model class & prepare block layout
-    */
-    public function _prepareLayout()
-    {
+    public function _prepareLayout() {
         $typo3Head = $this->_TYPO3Model
             ->load('head', ['page_uid' => $this->getData('page_uid')]);
 
         if ($typo3Head->getHasJsonContent()) {
-            $description = false;
-            $keywords = false;
-            $robots = '';
-
-            foreach ($typo3Head->getMeta() as $metaTag) {
-                $type = array_key_exists('property', $metaTag) ? 'property' : 'name';
-                $name = $metaTag[$type];
-                $content = $metaTag['content'];
-
-                switch ($name) {
-                    case 'description':
-                        if (!$description) {
-                            $this->pageConfig->setMetaData('description', $content);
-                            $description = true;
-                        }
-
-                        break;
-                    case 'keywords':
-                        if (!$keywords) {
-                            $this->pageConfig->setMetaData('keywords', $content);
-                            $keywords = true;
-                        }
-
-                        break;
-                    case 'abstract':
-                        $this->pageConfig->setMetaData('abstract', $content);
-
-                        break;
-                    case 'robots':
-                        $robots = $content;
-
-                        break;
-                }
+            if ($typo3Head->getTitle()) {
+                $this->pageConfig->getTitle()->set($typo3Head->getTitle());
             }
 
-            if ($description && $keywords && $typo3Head->getTitle()) {
-                $this->pageConfig->getTitle()->set(__($typo3Head->getTitle()));
-
-                if (!empty($robots)) {
-                    $this->pageConfig->setMetaData('robots', $robots);
+            foreach ($typo3Head->getData() as  $name => $metaTag) {
+                switch ($name) {
+                    case 'description':
+                        $this->pageConfig->setMetaData('description', $metaTag);
+                        break;
+                    case 'keywords':
+                        $this->pageConfig->setMetaData('keywords', $metaTag);
+                        break;
+                    case 'abstract':
+                        $this->pageConfig->setMetaData('abstract', $metaTag);
+                        break;
+                    case 'seo_title':
+                        $this->pageConfig->setMetaData('title', $metaTag);
+                        break;
+                    default:
+                        // $this->pageConfig->setMetaData($name, $metaTag);
                 }
             }
         }
