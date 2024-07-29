@@ -59,38 +59,31 @@ class Page extends AbstractBlock
     public function _prepareLayout()
     {
         $typo3Head = $this->_TYPO3Model
-                ->load('head', ['page_uid' => $this->getData('page_uid')]);
+            ->load('head', ['page_uid' => $this->getData('page_uid')]);
         if ($typo3Head->getHasJsonContent()) {
             if ($typo3Head->getTitle()) {
-                $this->pageConfig->getTitle()->set(__($typo3Head->getTitle()));
+                $this->pageConfig->getTitle()->set($typo3Head->getTitle());
             }
 
-            $description = false;
-            $keywords = false;
-            foreach ($typo3Head->getMeta() as $metaTag) {
-                $type = array_key_exists('property', $metaTag) ? 'property' : 'name';
-                $name = $metaTag[$type];
-                $content = $metaTag['content'];
-
+            foreach ($typo3Head->getData() as  $name => $metaTag) {
                 switch ($name) {
                     case 'description':
-                        if (!$description) {
-                            $this->pageConfig->setMetaData('description', $content);
-                            $description = true;
-                        }
-
+                        $this->pageConfig->setMetaData('description', $metaTag);
                         break;
                     case 'keywords':
-                        if (!$keywords) {
-                            $this->pageConfig->setMetaData('keywords', $content);
-                            $keywords = true;
-                        }
-
+                        $this->pageConfig->setMetaData('keywords', $metaTag);
+                        break;
+                    case 'abstract':
+                        $this->pageConfig->setMetaData('abstract', $metaTag);
+                        break;
+                    case 'seo_title':
+                        $this->pageConfig->setMetaData('title', $metaTag);
                         break;
                     default:
-                        $this->pageConfig->setMetaData($name, $content);
+                        // $this->pageConfig->setMetaData($name, $metaTag);
                 }
             }
+
         } elseif ($typo3Head->getHasErrors()) {
             $outputErrors = $this->_dataHelper
                 ->getDevelopmentOutputErrors();

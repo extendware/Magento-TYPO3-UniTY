@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.3.1]
+### Added
+- Add: Typo3 Head support add
+
 ## [2.3.0]
 ### Added
 - Add: TYPO3 breadcrumbs addition
