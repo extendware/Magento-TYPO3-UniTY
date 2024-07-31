@@ -197,6 +197,27 @@ class TYPO3 extends AbstractHelper
 
         return '' . $this->_urlHelper;
     }
+    public function processMode($mode, $blockParams, $url) {
+        if ($mode === 'menu') {
+            $this->handleMenuMode($blockParams);
+        } else {
+            $this->handleOtherModes($url);
+        }
+    }
+
+    private function handleMenuMode($blockParams) {
+        if (!isset($blockParams['layout']) || $blockParams['layout'] !== 'breadcrumb') {
+            $entryLevel = $this->_dataHelper->getT3MenuEntryLevel();
+            if ($entryLevel) {
+                $this->_urlHelper->addQueryParam('entry-level', $entryLevel);
+            }
+        }
+    }
+
+    private function handleOtherModes($url) {
+        $urlExtension = $this->_dataHelper->getT3UrlExtension();
+        $this->_urlHelper->appendPath($url . ($urlExtension ?: ''));
+    }
 
     public function getFetchUrl($mode, $blockParams)
     {
@@ -210,20 +231,10 @@ class TYPO3 extends AbstractHelper
 
         $url = $this->getPageUrl();
 
-        if ($mode == 'menu' && $blockParams['layout'] !== 'breadcrumb') {
-            $this->_urlHelper
-                ->setUrl($this->getT3BaseUrl($storeId), $storeId);
-
-            if ($this->_dataHelper->getT3MenuEntryLevel()){
-                $this->_urlHelper->addQueryParam('entry-level', $this->_dataHelper->getT3MenuEntryLevel());
-            }
-        } else {
-            if($this->_dataHelper->getT3UrlExtension()){
-                $this->_urlHelper->setUrl($this->getT3BaseUrl($storeId), $storeId)->appendPath($url.$this->_dataHelper->getT3UrlExtension());
-            } else {
-                $this->_urlHelper->setUrl($this->getT3BaseUrl($storeId), $storeId)->appendPath($url);
-            }
-        }
+        //handle menu & blockParams conflict
+        $this->_urlHelper->setUrl($this->getT3BaseUrl($storeId), $storeId);
+        $this->processMode($mode, $blockParams, $url);
+        //handle menu & blockParams conflict end
 
         $this->_urlHelper
             ->addQueryParam('type', $this->_dataHelper->getT3PageType($mode, $storeId));
