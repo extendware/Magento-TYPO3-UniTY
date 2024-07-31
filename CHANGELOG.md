@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.3.2]
+### Added
+- Add: Fix Menu issue
+- Add: Format and Optimize code to reduce code complexity
+
 ## [2.3.1]
 ### Added
 - Add: Typo3 Head support add
