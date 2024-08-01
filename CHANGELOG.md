@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.3.3]
+### Added
+- add catalog and cms dependancy
+
 ## [2.3.2]
 ### Added
 - Add: Fix Menu issue
