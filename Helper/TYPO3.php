@@ -197,20 +197,23 @@ class TYPO3 extends AbstractHelper
 
         return '' . $this->_urlHelper;
     }
+    
     public function processMode($mode, $blockParams, $url) {
         if ($mode === 'menu') {
-            $this->handleMenuMode($blockParams);
+            $this->handleMenuMode($blockParams, $url);
         } else {
             $this->handleOtherModes($url);
         }
     }
 
-    private function handleMenuMode($blockParams) {
+    private function handleMenuMode($blockParams, $url) {
         if (!isset($blockParams['layout']) || $blockParams['layout'] !== 'breadcrumb') {
             $entryLevel = $this->_dataHelper->getT3MenuEntryLevel();
             if ($entryLevel) {
                 $this->_urlHelper->addQueryParam('entry-level', $entryLevel);
             }
+        } else {
+            $this->handleOtherModes($url);
         }
     }
 

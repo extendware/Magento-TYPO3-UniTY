@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.3.4]
+### Added
+- Add: Breadcrumbs fix
+
 ## [2.3.3]
 ### Added
 - add catalog and cms dependancy
