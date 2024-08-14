@@ -268,13 +268,18 @@ class TYPO3 extends DataObject
         $headers = $curl->getHeaders();
         $status = $curl->getStatus();
 
-        // if status doesn't start with a 2 or isn't 100 we didn't got our content
+        // if status doesn't start with a 2 or isn't 100 we didn't get our content
         if ($status !== 100 && strpos($status, '2') !== 0) {
-            // is status starts with a 3 it is a redirect
+            // if status starts with a 3 it is a redirect
             if (strpos($status, '3') === 0) {
-                $location = $this->_replaceMarkers($headers['location']);
-
-                return $this->_fetchData($location);
+                // Check if 'Location' key exists in the headers array
+                if (isset($headers['Location'])) {
+                    $location = $this->_replaceMarkers($headers['Location']);
+                    return $this->_fetchData($location);
+                } else {
+                    // Handle the case where 'Location' is not set
+                    throw new \Exception('Redirect status received, but no Location header found.');
+                }
             } else {
                 $message = [];
                 $message[] = 'Status: ' . $status;
@@ -285,6 +290,7 @@ class TYPO3 extends DataObject
                 throw new \Exception(implode('<br>' . PHP_EOL, $message));
             }
         }
+
 
         return $result;
     }
