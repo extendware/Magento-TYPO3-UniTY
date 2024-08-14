@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.3.5]
+### Fixed
+- Fix: Undefined array key 'Location'.
+
 ## [2.3.4]
 ### Added
 - Add: Breadcrumbs fix
