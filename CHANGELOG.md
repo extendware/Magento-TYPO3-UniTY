@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.3.6]
+### Added
+- Add: cHash calculation for colPos parameter
+
 ## [2.3.5]
 ### Fixed
 - Fix: Undefined array key 'Location'.
