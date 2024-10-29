@@ -94,11 +94,13 @@ class TYPO3 extends AbstractHelper
         parent::__construct($context);
     }
 
-    public function getPageId($fallbackToRoot = false)
+    public function getPageId($fallbackToRoot = false, $cloneUrl = false)
     {
         $pageId = 0;
+
         if ($this->_dataHelper->isEnabled()) {
-            $url = $this->_urlHelper->clear();
+            $url = $cloneUrl ? clone $this->_urlHelper : $this->_urlHelper;
+            $url->clear();
 
             if (!$url->getPath()) {
                 $url->setUrl($this->_request->getRequestString());
@@ -111,7 +113,7 @@ class TYPO3 extends AbstractHelper
 
             $url = strtok($url, '?');
             $page = $this->_factoryHelper->getTypo3PagesModel()->loadByPath($url);
-            $pageId = (int)$page->getId();
+            $pageId = $cloneUrl ? $page->getId() : (int)$page->getId();
         }
         $this->_pageId = $pageId;
 
@@ -197,7 +199,7 @@ class TYPO3 extends AbstractHelper
 
         return '' . $this->_urlHelper;
     }
-    
+
     public function processMode($mode, $blockParams, $url) {
         if ($mode === 'menu') {
             $this->handleMenuMode($blockParams, $url);
@@ -274,8 +276,12 @@ class TYPO3 extends AbstractHelper
         }
 
         if ($this->_dataHelper->getDevelopmentNoCache()) {
-            $this->_urlHelper
-                ->addQueryParam('no_cache', '1');
+            $this->_urlHelper->addQueryParam('no_cache', '1');
+        } elseif ($mode === 'column' && array_key_exists('column_uid', $blockParams)) {
+            $this->_urlHelper->addQueryParam(
+                'cHash',
+                $this->calculateCacheHash($blockParams['column_uid'])
+            );
         }
 
         return '' . $this->_urlHelper;
@@ -304,5 +310,18 @@ class TYPO3 extends AbstractHelper
             default:
                 return false;
         }
+    }
+
+    protected function calculateCacheHash($colPos) {
+        $encKey = $this->_dataHelper->getT3EncryptionKey();
+        $pageId = $this->getPageId(false, true);
+
+        $data = [
+            'colPos' => $colPos,
+            'encryptionKey' => $encKey,
+            'id' => $pageId,
+        ];
+
+        return md5(serialize($data));;
     }
 }
