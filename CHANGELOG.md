@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.3.8]
+### Added
+- Fix: Added $pageUid variable Issue
+
 ## [2.3.7]
 ### Added
 - Fix: Added fallback for the cHash calculation pageId parameter

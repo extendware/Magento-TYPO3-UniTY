@@ -82,10 +82,12 @@ class Router implements \Magento\Framework\App\RouterInterface
 
     public function match(\Magento\Framework\App\RequestInterface $request)
     {
+
         if (!$this->dispatched) {
             $identifier = $request->getPathInfo();
             // check if module is enabled
             if ($this->helper->isEnabled()) {
+                $pageUid = flase;
                 try {
                     $pageUid = $this->helperTypo3->getPageId();
                 } catch (\Exception $e) {
