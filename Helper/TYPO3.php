@@ -314,7 +314,7 @@ class TYPO3 extends AbstractHelper
 
     protected function calculateCacheHash($colPos) {
         $encKey = $this->_dataHelper->getT3EncryptionKey();
-        $pageId = $this->getPageId(false, true);
+        $pageId = $this->getPageId(false, true) ?? $this->_dataHelper->getT3Rootpage();
 
         $data = [
             'colPos' => $colPos,
