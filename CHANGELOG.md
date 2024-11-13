@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.3.7]
+### Added
+- Fix: Added fallback for the cHash calculation pageId parameter
+
 ## [2.3.6]
 ### Added
 - Add: cHash calculation for colPos parameter
