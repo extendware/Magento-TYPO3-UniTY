@@ -52,7 +52,7 @@ class Router implements \Magento\Framework\App\RouterInterface
     /**
      * @var bool
      */
-    protected $dispatched;
+    protected $dispatched = false;
 
     /**
      * Router constructor.
@@ -87,7 +87,7 @@ class Router implements \Magento\Framework\App\RouterInterface
             $identifier = $request->getPathInfo();
             // check if module is enabled
             if ($this->helper->isEnabled()) {
-                $pageUid = flase;
+                $pageUid = false;
                 try {
                     $pageUid = $this->helperTypo3->getPageId();
                 } catch (\Exception $e) {
