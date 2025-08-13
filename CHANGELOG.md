@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.3.9]
+### Fixed
+- Fix: Typo in Router controller return type.
+
 ## [2.3.8]
 ### Added
 - Fix: Added $pageUid variable Issue
