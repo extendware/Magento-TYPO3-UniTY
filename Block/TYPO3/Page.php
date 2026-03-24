@@ -79,6 +79,30 @@ class Page extends AbstractBlock
                     case 'seo_title':
                         $this->pageConfig->setMetaData('title', $metaTag);
                         break;
+                    case 'jsonLd':
+                        if (!empty($metaTag)) {
+                            $decodedJsonLd = json_decode($metaTag, true);
+                            if (json_last_error() === JSON_ERROR_NONE) {
+                                $jsonLdPayload = json_encode(
+                                    $decodedJsonLd,
+                                    JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
+                                );
+                                if ($jsonLdPayload !== false) {
+                                    $headAdditional = $this->getLayout()->getBlock('head.additional');
+                                    if ($headAdditional) {
+                                        $schemaBlock = $this->getLayout()
+                                            ->createBlock(\Magento\Framework\View\Element\Text::class);
+                                        $schemaBlock->setText(
+                                            '<script type="application/ld+json" class="mm-schema-graph">'
+                                            . $jsonLdPayload
+                                            . '</script>'
+                                        );
+                                        $headAdditional->append($schemaBlock, 'webvision.unity.jsonld');
+                                    }
+                                }
+                            }
+                        }
+                        break;
                     default:
                         // $this->pageConfig->setMetaData($name, $metaTag);
                 }

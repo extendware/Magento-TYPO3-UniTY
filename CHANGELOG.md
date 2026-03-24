@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.4.0]
+### Added
+- Fix: Implement jsonLD from typo3 to magento head
+
 ## [2.3.9]
 ### Fixed
 - Fix: Typo in Router controller return type.
