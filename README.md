@@ -55,3 +55,12 @@ To establish a connection to the TYPO3 database in Magento 2, you need to add ne
 ```
 ### Further documentation
 Further documentation can be found here: https://docs.extendware.com/unity/index.html
+
+## Simplified EU Declaration of Conformity (Annex VI)
+
+> Hereby, web-vision GmbH declares that the product with digital elements
+> type Mage UniTY is in compliance with Regulation (EU) 2024/2847.
+>
+> The full text of the EU declaration of conformity is available at the
+> following internet address:
+> https://security.web-vision.de/conformity/extendware/unity/2.4.1/en/
