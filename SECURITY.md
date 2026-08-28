@@ -14,7 +14,7 @@ reporting an issue against them.
 
 | Version | Supported            | End of Support |
 | ------- | -------------------- | -------------- |
-| 2.x | :white_check_mark: | 2028-08-08 |
+| 2.x | :x: | 2026-08-08 |
 | < 2.0 | :x: | support ended |
 
 Each major release line is supported for the stated period. Minor and patch releases within a major line do not reset that line's original support-period start date.
@@ -56,13 +56,15 @@ researchers who:
 
 ## Scope
 
-In scope: the source code, released versions, and official distribution
-channels of "extendware/unity" (e.g. TER / Packagist).
+In scope: the source code, supported released versions, and official
+distribution channels of "extendware/unity":
+
+- Private Composer repository — https://packagist.com/orgs/extendware/packages/3777002
 
 Out of scope: third-party dependencies (please report those upstream, but
 feel free to let us know so we can track and update them), and
-vulnerabilities in the host application (TYPO3 core) itself
-unless directly caused by this extension.
+vulnerabilities in the host application (Magento Open Source or Adobe Commerce) itself unless
+directly caused by this product.
 
 ## Coordinator
 
